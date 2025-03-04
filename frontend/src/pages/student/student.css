@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
+*{
+    margin:0;
+    padding:0;
+}
+span{
+    color: white;
+    font-weight: 300;
+}
+.content{
+    position:absolute;
+    top:50px;
+    left:80px;
+}
+.activity-history{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 60px;
+    width:100%;
+    padding:0 10px;
+}
+.activity-history h1{
+    margin:0
+}
+hr{
+    color:gray;
+    opacity: 0.5;
+}
+.activity-history-contents{
+    display: flex;
+flex-direction: column;
+padding: 20px 20px;
+gap:20px;
+width: 1071px;
+height: 693px;
+
+/* background-color:aqua */
+}
+.activity-history-content{
+    display:flex;
+    justify-content: space-between;
+    background: #9C6FE4;
+    border-radius: 15px;
+    padding:2px 25px;
+    width:100%;
+    cursor:pointer;
+
+}
+
+.activity-history-content-right,.activity-history-content-left,.activity-history-content-middle{
+    display:flex;
+    gap:0;
+    flex-direction:column;
+}
+.activity-history-content-right,.activity-history-content-middle{
+    justify-content: center;
+    text-align: center;
+}
