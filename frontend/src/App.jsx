@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminLayout from "./layouts/AdminLayout";
-// import StudentLayout from "./layouts/studentlayout";
+import StudentLayout from "./layouts/StudentLayout";
 // import FacultyLayout from "./layouts/facultylayout";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -8,10 +8,13 @@ import ManageUsers from "./pages/admin/ManageUsers";
 import ManageActivities from "./pages/admin/ManageActivities";
 import AdminGuidelines from "./pages/admin/Guidelines";
 
-// import StudentDashboard from "./pages/student/Dashboard";
-// import MyProjects from "./pages/student/MyProjects";
-// import ApplyProjects from "./pages/student/ApplyProjects";
-// import StudentGuidelines from "./pages/student/Guidelines";
+import StudentDashboard from "./pages/student/StudentDashboard";
+import ActivityHistory from "./pages/student/ActivityHistory";
+import Activities from "./pages/student/Activities";
+import Announcements from "./pages/student/Announcements";
+import Guidelines from "./pages/student/Guidelines";
+import RequestForm from "./pages/student/RequestForm";
+import Tracking from "./pages/student/Tracking";
 
 // import FacultyDashboard from "./pages/faculty/Dashboard";
 // import ManageProjects from "./pages/faculty/ManageProjects";
@@ -30,12 +33,15 @@ function App() {
         </Route>
 
         {/* Student Routes */}
-        {/* <Route path="/student/*" element={<StudentLayout />}>
+        <Route path="/student/*" element={<StudentLayout />}>
           <Route path="dashboard" element={<StudentDashboard />} />
-          <Route path="my-projects" element={<MyProjects />} />
-          <Route path="apply" element={<ApplyProjects />} />
-          <Route path="guidelines" element={<StudentGuidelines />} />
-        </Route> */}
+          <Route path="tracking" element={<Tracking />} />
+          <Route path="activity-history" element={<ActivityHistory />} />
+          <Route path="request-form" element={<RequestForm />} />
+          <Route path="activities" element={<Activities />} />
+          <Route path="help" element={<Guidelines/>} />
+          <Route path="announcements" element={<Announcements/>} />
+        </Route>
 
         {/* Faculty Routes */}
         {/*<Route path="/faculty/*" element={<FacultyLayout />}>

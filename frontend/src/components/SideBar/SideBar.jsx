@@ -2,33 +2,24 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './sidebar.css'
 import { useState } from 'react'
-
+import assets from '../../assets/assets'
 const SideBar = ({role}) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggleSidebar = () => setIsOpen(!isOpen);
 
     const links=[
         {view:"admin",links:[
-            {name:"Dashboard",url:"/admin/dashboard",image:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-columns" viewBox="0 0 16 16">
-                <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm8.5 0v8H15V2zm0 9v3H15v-3zm-1-9H1v3h6.5zM1 14h6.5V6H1z"/>
-              </svg>},
-            {name:"Manage Users",url:"/admin/users",image:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
-                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
-              </svg>},
-            {name:"Manage Activities",url:"/admin/activities",image:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/>
-              </svg>},
-            {name:"Guidelines",url:"/admin/guidelines",image:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
-                <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
-                <path d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8m0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5"/>
-              </svg>},
+            {name:"Dashboard",url:"/admin/dashboard",image:assets.dashboard},
+            {name:"Manage Users",url:"/admin/users",image:assets.users},
+            {name:"Manage Activities",url:"/admin/activities",image:assets.activities},
+            {name:"Guidelines",url:"/admin/guidelines",image:assets.guidelines},
         ]},
         {view:"student",links:[
-            {name:"Dashboard",url:"/student/dashboard"},
-            {name:"Tracking",url:"/student/users"},
-            {name:"Activity History",url:"/student/activities"},
-            {name:"Request Form",url:"/student/request-form"},
-            {name:"Guidelines",url:"/student/guidelines"},
+            {name:"Dashboard",url:"/student/dashboard",image:assets.dashboard},
+            {name:"Tracking",url:"/student/tracking",image:<i class="bi bi-radar"></i>},
+            {name:"Activity History",url:"/student/activity-history",image:<i class="bi bi-hourglass-bottom"></i>},
+            {name:"Request Form",url:"/student/request-form",image:<i class="bi bi-file-earmark-text"></i>},
+            {name:"Guidelines",url:"/student/guidelines",image:assets.guidelines},
         ]},
         {view:"fa",links:[
             {name:"Dashboard",url:"/fa/dashboard"},
