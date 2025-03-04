@@ -6,14 +6,11 @@ import SideBar from '../components/SideBar/SideBar'
 const StudentLayout = () => {
   return (
     <div>
-        <div className="flex">
-        <SideBar role="student" />
-      <div className="flex-1">
-        <NavBar />
-        <Outlet />
-      </div>
-        </div>
-      
+      <NavBar />
+      <div className="flex">
+      <SideBar role="student" />
+      <Outlet />
+    </div>
     </div>
   )
 }
