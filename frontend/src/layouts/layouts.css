@@ -1,0 +1,24 @@
+/* Sidebar */
+.flex {
+    position: fixed; /* Keeps the sidebar in place */
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Navbar */
+.flex-1 {
+    position:relative; /* Keeps the navbar in place */
+    width: calc(100% - 80px); /* Account for sidebar width */
+    left: 80px; /* Push the navbar to the right of the sidebar */
+    /* z-index: -1; Lower z-index than sidebar */
+}
+.flex{
+    display: flex;
+    
+}
+.flex-1 {
+    display: flex;
+    padding: 10px;
+    z-index: -1; /* Lower z-index than sidebar */
+}
