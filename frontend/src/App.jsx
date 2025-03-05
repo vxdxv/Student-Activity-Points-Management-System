@@ -8,7 +8,7 @@ import ManageUsers from "./pages/admin/ManageUsers";
 import ManageActivities from "./pages/admin/ManageActivities";
 import AdminGuidelines from "./pages/admin/Guidelines";
 
-import StudentPortalDashboard from "./pages/student/StudentPortalDashboard";
+import StudentDashboard from "./pages/student/StudentDashboard";
 import ActivityHistory from "./pages/student/ActivityHistory";
 import Activities from "./pages/student/Activities";
 import Announcements from "./pages/student/Announcements";
@@ -37,7 +37,7 @@ function App() {
 
         {/* Student Routes */}
         <Route path="/student/*" element={<StudentLayout />}>
-          <Route path="dashboard" element={<StudentPortalDashboard />} />
+        <Route path="dashboard" element={<StudentDashboard />} />
           <Route path="tracking" element={<Tracking />} />
           <Route path="activity-history" element={<ActivityHistory />} />
           <Route path="request-form" element={<RequestForm />} />
