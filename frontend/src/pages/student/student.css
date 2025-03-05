@@ -2,6 +2,8 @@
 *{
     margin:0;
     padding:0;
+    font-family: 'Poppins';
+    scrollbar-width: none;
 }
 span{
     color: white;
@@ -9,11 +11,10 @@ span{
 }
 .content{
     position:absolute;
-    top:50px;
-    left:80px;
+    top:80px;
+    left:120px;
 }
 .activity-history{
-    font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
     line-height: 60px;
@@ -32,8 +33,10 @@ hr{
 flex-direction: column;
 padding: 20px 20px;
 gap:20px;
-width: 1071px;
-height: 693px;
+width: 80vw;
+height: 70vh;
+overflow-y: auto;
+
 
 /* background-color:aqua */
 }
@@ -43,7 +46,7 @@ height: 693px;
     background: #9C6FE4;
     border-radius: 15px;
     padding:2px 25px;
-    width:100%;
+    width: 70vw;
     cursor:pointer;
 
 }
@@ -56,4 +59,153 @@ height: 693px;
 .activity-history-content-right,.activity-history-content-middle{
     justify-content: center;
     text-align: center;
+}
+
+/*tracking*/
+.tracking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75vw; /* Reduce width */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px; /* Reduce font size */
+}
+
+.tracking h1 {
+    font-size: 20px; /* Reduce heading size */
+}
+
+.tracking-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #DDD5F3;
+    width: 30vw; /* Reduce width */
+    height: auto; /* Auto height based on content */
+    border-radius: 10px;
+    padding: 15px; /* Reduce padding */
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.tracking-items h3 {
+    font-weight: 400;
+    color: white;
+    font-size: 14px; /* Reduce text size */
+}
+
+#heading {
+    margin-bottom: 10px;
+    background-color: #925FE2;
+    color: black;
+    padding: 5px 15px; /* Adjust padding */
+    border-radius: 8px;
+    text-align: center;
+}
+
+.tracking span {
+    padding: 4px 10px; /* Reduce padding */
+    border-radius: 8px;
+    font-size: 12px; /* Reduce font size */
+}
+
+.tracking-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(146, 95, 226, 0.68);
+    border-radius: 8px;
+    padding: 12px; /* Reduce padding */
+}
+.pending {
+    background-color: #FDEFB0;
+    color: #AB5200;
+}
+
+.approved {
+    background-color: #D4F9C9;
+    color: #2F7D32;
+}
+
+.rejected {
+    background-color: #F9C9C9;
+    color: #D32F2F;
+}
+/* announcements */
+.announcements {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+  }
+  
+  .announcement {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 8px;
+    text-decoration: none; /* Removes link underline */
+    color: inherit; /* Ensures text color remains unchanged */
+    background: #fff;
+  }
+  
+  .announcement:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .announcement-details {
+    flex-basis: 80%;
+  }
+  .announcement-details p{
+    color:gray;
+    font-size: small;
+  }
+  
+  .announcement span {
+    font-weight: 600;
+    color: black;
+    font-size: small;
+  }
+  
+  .announcement-detail {
+    padding: 20px;
+  }
+  
+  /*Announcement in detail*/
+  .announcement-content {
+    margin-left: 20px;
+    margin-top: 45px;
+    position: relative; /* Ensure child absolute positioning works */
+    padding: 20px;
+    min-height: 200px; /* Adjust as per your content */
+}
+
+.announcement-title-time span {
+    color: gray;
+}
+
+.announcement-body {
+    margin-left: 20px;
+    margin-top: 45px;
+}
+
+.btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #6a0dad; /* Purple button */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #570b9a;
 }

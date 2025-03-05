@@ -17,6 +17,7 @@
 
 .container img{
     width: 128px;
+    cursor: pointer;
 }
 .shortcuts{
     padding-top: 100px;
