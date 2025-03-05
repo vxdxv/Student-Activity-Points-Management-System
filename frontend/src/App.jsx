@@ -17,6 +17,8 @@ import RequestForm from "./pages/student/RequestForm";
 import Tracking from "./pages/student/Tracking";
 import AnnouncementDetail from "./pages/student/AnnouncementDetail";
 
+import Login from "./pages/login/Login"
+
 // import FacultyDashboard from "./pages/faculty/Dashboard";
 // import ManageProjects from "./pages/faculty/ManageProjects";
 // import ApproveRequests from "./pages/faculty/ApproveRequests";
@@ -44,7 +46,7 @@ function App() {
           <Route path="announcements" element={<Announcements/>} />
           <Route path="announcements/:id" element={<AnnouncementDetail />} />
         </Route>
-
+        <Route path="/login"  element={<Login/>}/>
         {/* Faculty Routes */}
         {/*<Route path="/faculty/*" element={<FacultyLayout />}>
           <Route path="dashboard" element={<FacultyDashboard />} />
