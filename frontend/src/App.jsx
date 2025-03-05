@@ -8,7 +8,7 @@ import ManageUsers from "./pages/admin/ManageUsers";
 import ManageActivities from "./pages/admin/ManageActivities";
 import AdminGuidelines from "./pages/admin/Guidelines";
 
-import StudentDashboard from "./pages/student/StudentDashboard";
+import StudentPortalDashboard from "./pages/student/StudentPortalDashboard";
 import ActivityHistory from "./pages/student/ActivityHistory";
 import Activities from "./pages/student/Activities";
 import Announcements from "./pages/student/Announcements";
@@ -17,7 +17,7 @@ import RequestForm from "./pages/student/RequestForm";
 import Tracking from "./pages/student/Tracking";
 import AnnouncementDetail from "./pages/student/AnnouncementDetail";
 
-import Login from "./pages/login/Login"
+import Index from "./pages/login/Login"
 
 // import FacultyDashboard from "./pages/faculty/Dashboard";
 // import ManageProjects from "./pages/faculty/ManageProjects";
@@ -37,7 +37,7 @@ function App() {
 
         {/* Student Routes */}
         <Route path="/student/*" element={<StudentLayout />}>
-          <Route path="dashboard" element={<StudentDashboard />} />
+          <Route path="dashboard" element={<StudentPortalDashboard />} />
           <Route path="tracking" element={<Tracking />} />
           <Route path="activity-history" element={<ActivityHistory />} />
           <Route path="request-form" element={<RequestForm />} />
@@ -46,7 +46,7 @@ function App() {
           <Route path="announcements" element={<Announcements/>} />
           <Route path="announcements/:id" element={<AnnouncementDetail />} />
         </Route>
-        <Route path="/login"  element={<Login/>}/>
+        <Route path="/login"  element={<Index/>}/>
         {/* Faculty Routes */}
         {/*<Route path="/faculty/*" element={<FacultyLayout />}>
           <Route path="dashboard" element={<FacultyDashboard />} />
