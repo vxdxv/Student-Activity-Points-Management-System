@@ -9,7 +9,7 @@ const NavBar = () => {
         <h3>Name</h3>
         </div>
         <div className='navbar__right'> 
-            <button>logout</button>
+            <button>logoutt</button>
             </div>
     </div>
   )
