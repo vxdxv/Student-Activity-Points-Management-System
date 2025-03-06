@@ -18,8 +18,9 @@ const SideBar = ({role}) => {
             {name:"Dashboard",url:"/student/dashboard",image:assets.dashboard},
             {name:"Tracking",url:"/student/tracking",image:<i class="bi bi-radar"></i>},
             {name:"Activity History",url:"/student/activity-history",image:<i class="bi bi-hourglass-bottom"></i>},
-            {name:"Request Form",url:"/student/request-form",image:<i class="bi bi-file-earmark-text"></i>},
-            {name:"Guidelines",url:"/student/help",image:assets.guidelines},
+            {name:"Activities", url: "/student/activities", image:<i className="bi bi-file-earmark-text"></i>},
+            {name:"Request Form",url:"/student/request-form",image:<i class="bi bi-pencil"></i>},
+            {name:"Guidelines",url:"/student/guidelines",image:assets.guidelines},
         ]},
         {view:"fa",links:[
             {name:"Dashboard",url:"/fa/dashboard"},

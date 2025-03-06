@@ -1,0 +1,150 @@
+
+.request-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f9f9f9;
+  
+}
+
+.request-form-container {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  border:1px solid #a165e0;
+
+}
+
+.header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: gray;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group,
+.formm-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  border: 1px solid #6200ea;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.radio-group label:hover,
+.radio-group input:checked + label {
+  background: #ece7ff;
+}
+
+.radio-group input {
+  margin-right: 10px;
+}
+
+select,
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+select {
+  cursor: pointer;
+}
+
+/* File Upload */
+input[type="file"] {
+  display: flex;
+}
+
+.upload-label {
+  display: flex;
+  align-items: center;
+  background: #6200ea;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-label:hover {
+  background: #4500b5;
+}
+
+.not-listed-btn,
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.not-listed-btn {
+  background: transparent;
+  color: #6200ea;
+  margin-top: 10px;
+  text-align: left;
+}
+
+.submit-btn {
+  background-color: #a165e0;
+  color: white;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background: #c0392b;
+}
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.close-btn {
+  background: grey;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left:170px;
+  margin-top:-12px;
+}
+
+.close-btn:hover {
+  background: rgb(172, 167, 167);
+}
