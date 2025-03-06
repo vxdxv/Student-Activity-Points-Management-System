@@ -10,7 +10,7 @@ const LoginPage = () => {
     setActiveOption(option);
     console.log(`Selected login option: ${option}`);
     if (option === 'student') {
-      navigate('/student-login');
+      navigate('/student/dashboard');
     } else if (option === 'staff') {
       navigate('/staff-login');
     }
