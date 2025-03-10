@@ -42,7 +42,7 @@ function App() {
           <Route path="activity-history" element={<ActivityHistory />} />
           <Route path="request-form" element={<RequestForm />} />
           <Route path="activities" element={<Activities />} />
-          <Route path="help" element={<Guidelines/>} />
+          <Route path="guidelines" element={<Guidelines/>} />
           <Route path="announcements" element={<Announcements/>} />
           <Route path="announcements/:id" element={<AnnouncementDetail />} />
         </Route>

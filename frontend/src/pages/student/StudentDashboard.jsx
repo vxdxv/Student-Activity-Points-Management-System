@@ -12,7 +12,16 @@ const StudentDashboard = () => {
         <div className="col-md-10 p-4">
           {/* Header */}
           <div className="d-flex justify-content-between align-items-center">
-            <h5>Student Portal Dashboard</h5>
+          <h5 style={{ 
+  textAlign: "center", 
+  fontSize: "32px", 
+  fontWeight: "bold", 
+  textTransform: "uppercase" ,
+  marginLeft: "500px"
+}}>
+  Student Portal Dashboard
+</h5>
+
             <div className="d-flex align-items-center">
               <img
                 src="https://via.placeholder.com/40"
@@ -53,7 +62,17 @@ const StudentDashboard = () => {
 
           {/* Activity History */}
           <div className="mt-4">
-            <h5>Activity History</h5>
+          <h5 style={{ 
+            textAlign: "center", 
+            fontSize: "24px", 
+            fontWeight: "bold", 
+            textTransform: "uppercase", 
+            marginLeft:"-1330px",
+            marginTop:"50px"
+          }}>
+            Activity History
+          </h5>
+
             <table className="table table-bordered">
               <thead>
                 <tr>
@@ -72,13 +91,23 @@ const StudentDashboard = () => {
             </table>
           </div>
 
-          {/* Announcements */}
+
           <div className="mt-4">
-            <h5>Announcements</h5>
+            <h5 style={{ 
+              textAlign: "center", 
+              fontSize: "24px", 
+              fontWeight: "bold", 
+              textTransform: "uppercase", 
+              marginLeft:"-1330px",
+              marginTop:"50px",
+              marginBottom:"30px"
+            }}>
+              Announcements
+            </h5>
             <div className="bg-light p-3 rounded">
-              <h6>FA Meeting 2 Postponement</h6>
+              <h6>1. FA Meeting 2 Postponement</h6>
               <p>FA meeting is postponed to 18th March 2025</p>
-              <h6>Certificate Upload Deadline</h6>
+              <h6>2. Certificate Upload Deadline</h6>
               <p>Deadline for Winter semester: 20th April 2025</p>
             </div>
           </div>
