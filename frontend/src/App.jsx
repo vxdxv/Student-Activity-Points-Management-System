@@ -19,9 +19,18 @@ import AnnouncementDetail from "./pages/student/AnnouncementDetail";
 
 import Index from "./pages/login/Login"
 
+import StudentList from "./pages/fa/fadashboard/listofstudents";
+
+import TailwindTest from "./pages/admin/TailwindTest";
+
+import AnnouncementPage from "./pages/fa/fadashboard/AnnouncementPage";
+
+import Faannouncements from "./pages/fa/fadashboard/Faannouncements";
+
+
 // import FacultyDashboard from "./pages/faculty/Dashboard";
 // import ManageProjects from "./pages/faculty/ManageProjects";
-// import ApproveRequests from "./pages/faculty/ApproveRequests";
+import ApprovalsTable from "./pages/fa/fadashboard/approvals";
 
 function App() {
   return (
@@ -37,7 +46,7 @@ function App() {
 
         {/* Student Routes */}
         <Route path="/student/*" element={<StudentLayout />}>
-        <Route path="dashboard" element={<StudentDashboard />} />
+          <Route path="dashboard" element={<StudentDashboard />} />
           <Route path="tracking" element={<Tracking />} />
           <Route path="activity-history" element={<ActivityHistory />} />
           <Route path="request-form" element={<RequestForm />} />
@@ -46,7 +55,15 @@ function App() {
           <Route path="announcements" element={<Announcements/>} />
           <Route path="announcements/:id" element={<AnnouncementDetail />} />
         </Route>
+          <Route path="/list"  element={<StudentList/>}/>
+          {/* <Route path="/details"  element={<Student/>}/> */}
+        <Route path="/tailwind" element={<TailwindTest />} />
         <Route path="/login"  element={<Index/>}/>
+        <Route path="/approvals" element={<ApprovalsTable />} />
+        <Route path="/announcement" element={<AnnouncementPage />} />
+        <Route path="/Faannouncements" element={<Faannouncements />} />
+
+        
         {/* Faculty Routes */}
         {/*<Route path="/faculty/*" element={<FacultyLayout />}>
           <Route path="dashboard" element={<FacultyDashboard />} />
