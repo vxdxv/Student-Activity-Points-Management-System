@@ -5,12 +5,11 @@ const NavBar = () => {
   return (
     <div className='navbar'>
      <div className='navbar__left'>
-        
         {/* <h3>Name</h3> */}
-        </div>
-        <div className='navbar__right'> 
-            <button>logoutt</button>
-            </div>
+      </div>
+      <div className='navbar__right'> 
+            {/* <h3>Name</h3> */}
+      </div>
     </div>
   )
 }

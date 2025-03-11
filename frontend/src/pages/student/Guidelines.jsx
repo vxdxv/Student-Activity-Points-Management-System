@@ -5,13 +5,15 @@ const Guidelines = () => {
     <div className="container-fluid">
       <div className="row">
         {/* Sidebar Space */}
-        <div className="col-md-2 vh-100"></div>
-
-        {/* Main Content */}
-        <div className="col-md-10 p-4">
+        <div className="col-md-10 p-4" style={{ marginLeft: "270px", marginTop: "60px" }}>
           {/* Header */}
           <div className="d-flex justify-content-between align-items-center mb-4">
-            <h3>Activity Points Guidelines</h3>
+          <h3 style={{ 
+        marginLeft:"550px",
+        fontSize: "32px", 
+        fontWeight: "bold", 
+        textTransform: "uppercase" 
+        , className:"ms-auto me-auto"}}>Activity Points Guidelines</h3>
           </div>
 
           {/* Guidelines Card */}

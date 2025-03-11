@@ -11,7 +11,7 @@ const RequestForm = () => {
     organization: "",
     location: "",
     description: "",
-    isCustomActivity: false, 
+    isCustomActivity: false,
   });
 
   const [errors, setErrors] = useState({});
@@ -43,18 +43,8 @@ const RequestForm = () => {
   const validateForm = () => {
     let errors = {};
 
-    console.log("Validating form...");
-    console.log("Category:", formData.category);
-    console.log("Activity:", formData.activity);
-    console.log("Is Custom Activity:", formData.isCustomActivity);
-
-    if (!formData.category) {
-      errors.category = "Activity category is required";
-    }
-
-    if (!formData.isCustomActivity && !formData.activity.trim()) {
-      errors.activity = "Activity selection is required";
-    }
+    if (!formData.category) errors.category = "Activity category is required";
+    if (!formData.isCustomActivity && !formData.activity.trim()) errors.activity = "Activity selection is required";
 
     if (formData.isCustomActivity) {
       if (!formData.activityName) errors.activityName = "Activity name is required";
@@ -64,18 +54,15 @@ const RequestForm = () => {
       if (!formData.description) errors.description = "Description is required";
     }
 
-    if (!formData.file) {
-      errors.file = "Proof document is required";
-    }
+    if (!formData.file) errors.file = "Proof document is required";
 
-    console.log("Errors detected:", errors);
     return errors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
-    setErrors({ ...validationErrors });
+    setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form Submitted", formData);
@@ -87,19 +74,13 @@ const RequestForm = () => {
     <div className="request-page">
       <main className="request-form-container">
         <div className="header">
-        <h2 style={{ 
-        fontSize: "32px", 
-        fontWeight: "bold", 
-        textTransform: "uppercase"
-        }}>
-          Request for Points</h2>
-          <p style ={{marginBottom: "40px"}}>
-            Select activity category, activity type, and upload proof to claim your points!</p>
+          <h2 className="title">Request for Points</h2>
+          <p style ={{marginBottom: "40px", marginLeft:"250px"}}>Select activity category, activity type, and upload proof to claim your points!</p>
         </div>
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Activity Category:</label>
+          <label style ={{marginBottom:"220px"}}>Activity Category:</label>
             <div className="radio-group">
               <label>
                 <input type="radio" name="category" value="Institutional" onChange={handleChange} />
@@ -117,8 +98,7 @@ const RequestForm = () => {
             {errors.category && <span className="error">{errors.category}</span>}
           </div>
 
-          <div className="formm-group">
-            <label>Activity:</label>
+          <div className="form-group">
             {!formData.isCustomActivity ? (
               <>
                 <select name="activity" value={formData.activity} onChange={handleChange}>
@@ -136,30 +116,44 @@ const RequestForm = () => {
               <>
                 <input type="text" name="activityName" placeholder="Enter activity name" value={formData.activityName} onChange={handleChange} />
                 {errors.activityName && <span className="error">{errors.activityName}</span>}
-                
+
                 <input type="date" name="date" value={formData.date} onChange={handleChange} />
                 {errors.date && <span className="error">{errors.date}</span>}
-                
-                <input type="text" name="organization" placeholder="Name of Organisation" value={formData.organization} onChange={handleChange} />
-                {errors.organization && <span className="error">{errors.organization}</span>}
-                
-                <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} />
-                {errors.location && <span className="error">{errors.location}</span>}
-                
-                <div className="description-container">
-                  <textarea name="description" placeholder="Description of the event" value={formData.description} onChange={handleChange} />
-                  <button type="button" className="close-btn" onClick={resetCustomActivity}>Close</button>
-                </div>
-                {errors.description && <span className="error">{errors.description}</span>}
               </>
             )}
           </div>
 
-          <div className="form-group">
-            <label>Upload PDF Proof:</label>
-            <input type="file" accept="application/pdf" onChange={handleFileChange} />
-            {errors.file && <span className="error">{errors.file}</span>}
+          {formData.isCustomActivity && (
+            <div className="form-row">
+            <div className="form-group">
+              <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} />
+              {errors.location && <span className="error">{errors.location}</span>}
+              <input type="text" name="organization" placeholder="Name of Organisation" value={formData.organization} onChange={handleChange} />
+              {errors.organization && <span className="error">{errors.organization}</span>}
+            </div>
+      
+            <div className="form-description">
+              <textarea name="description" placeholder="Description of the event" value={formData.description} onChange={handleChange} />
+              {errors.description && <span className="error">{errors.description}</span>}
+            </div>
+            <div className="close">
+            <button type="button" className="close-btn" onClick={resetCustomActivity}>Close</button>
+            </div>
           </div>
+          )}
+
+<div className="form-upload">
+  <label>Upload PDF Proof:</label>
+  <div className="custom-file-upload">
+    <label htmlFor="file-upload" className="upload-btn">
+      Choose File
+    </label>
+    <input id="file-upload" type="file" accept="application/pdf" onChange={handleFileChange} />
+    <span className="file-name">{formData.file ? formData.file.name : "No file chosen"}</span>
+  </div>
+  {errors.file && <span className="error">{errors.file}</span>}
+</div>
+
 
           <button type="submit" className="submit-btn">Submit</button>
         </form>
@@ -169,3 +163,4 @@ const RequestForm = () => {
 };
 
 export default RequestForm;
+
