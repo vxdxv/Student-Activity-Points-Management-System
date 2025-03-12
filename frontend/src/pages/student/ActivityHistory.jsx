@@ -1,6 +1,6 @@
 import React from 'react';
 import './activities.css';
-import "./global.css";
+
 
 import { FaStar } from "react-icons/fa";
 
