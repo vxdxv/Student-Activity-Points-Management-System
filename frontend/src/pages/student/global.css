@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+  }
+  html {
+    zoom: 1; /* Ensure consistent zoom */
+    overflow-x: hidden;
+  }
+  @media screen and (min-width: 1400px) {
+    body {
+      transform: scale(1); /* Ensures UI remains the same */
+    }
+  }
+      
