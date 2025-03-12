@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './student.css'
-import "./global.css";
 
 const Announcements = () => {
   const announcements = [

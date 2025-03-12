@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./request.css";
-import "./global.css";
+
 
 
 const RequestForm = () => {
