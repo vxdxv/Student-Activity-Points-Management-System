@@ -27,6 +27,8 @@ import AnnouncementPage from "./pages/fa/fadashboard/AnnouncementPage";
 
 import Faannouncements from "./pages/fa/fadashboard/Faannouncements";
 
+import StudentDetails from "./pages/fa/fadashboard/StudentDetails";
+
 
 // import FacultyDashboard from "./pages/faculty/Dashboard";
 // import ManageProjects from "./pages/faculty/ManageProjects";
@@ -62,7 +64,7 @@ function App() {
         <Route path="/approvals" element={<ApprovalsTable />} />
         <Route path="/announcement" element={<AnnouncementPage />} />
         <Route path="/Faannouncements" element={<Faannouncements />} />
-
+        <Route path="/studentdetails" element={<StudentDetails />} />
         
         {/* Faculty Routes */}
         {/*<Route path="/faculty/*" element={<FacultyLayout />}>
