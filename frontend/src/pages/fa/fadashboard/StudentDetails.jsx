@@ -1,61 +1,74 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./Dashboard.css";
 
-const StudentDetails = () => {
+const Dashboard = () => {
   return (
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100" style={{ background: "linear-gradient(to bottom, #b48dde, #8245a3)" }}>
-      <div className="card p-4 shadow-lg" style={{ maxWidth: "1000px", width: "100%", backgroundColor: "#fff" }}>
-        <div className="text-center mb-3">
-          <i className="bi bi-person-circle fs-1"></i>
-          <h5 className="mb-0">Rock</h5>
-          <small className="text-muted">Faculty Advisor</small>
+    <div className="dashboard-container">
+     
+
+      <main className="main-content">
+       
+
+        <div className="stats-container">
+          <div className="stat-card">
+            <h3>42</h3>
+            <p>Total Students</p>
+          </div>
+          <div className="stat-card">
+            <h3>8</h3>
+            <p>Pending Reviews</p>
+          </div>
+          <div className="stat-card">
+            <h3>15</h3>
+            <p>Completed Reviews</p>
+          </div>
         </div>
 
-        <h5 className="text-primary fw-bold text-center">Student Details</h5>
-        <div>
-        <div className="card p-3 shadow-sm" style={{ backgroundColor: "#f3e8ff" }}>
-          <div className="d-flex align-items-center justify-content-between">
-            <div className="text-center">
-              <i className="bi bi-person-circle fs-1"></i>
-              <p className="mb-0 fw-bold">Rock</p>
-              <p className="text-muted small">B22xxxxxxcs</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-primary text-white p-1 rounded shadow-sm">
-                <h6 className="mb-0">Total Points:</h6>
-                <h5 className="mb-0">25</h5>
-              </div>
-            </div>
-            <div className="text-center">
-              <button className="btn btn-primary">PDF/Proof</button>
-            </div>
-          </div>
-</div>
-          <table className="table mt-3">
+        <section className="pending-reviews">
+          <h3>Pending Reviews</h3>
+          <table>
             <thead>
               <tr>
-                <th>Activity Name</th>
+                <th>Student</th>
+                <th>Activity</th>
+                <th>Category</th>
+                <th>Submitted</th>
                 <th>Points</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {[
-                "Department level Activity",
-                "Institute level Activity",
-                "Ragam Activity",
-                "Department of Activity",
-              ].map((activity, index) => (
-                <tr key={index}>
-                  <td>{activity}</td>
-                  <td className="text-primary fw-bold">5</td>
-                </tr>
-              ))}
+              <tr>
+                <td>Alex Johnson</td>
+                <td>Research Paper Publication</td>
+                <td>Academic</td>
+                <td>Jan 25, 2024</td>
+                <td>15</td>
+                <td><button className="review-btn">Review</button></td>
+              </tr>
+              <tr>
+                <td>Emma Wilson</td>
+                <td>National Debate Competition</td>
+                <td>Academic</td>
+                <td>Jan 28, 2024</td>
+                <td>12</td>
+                <td><button className="review-btn">Review</button></td>
+              </tr>
+              <tr>
+                <td>Michael Brown</td>
+                <td>Hackathon Participation</td>
+                <td>Technical</td>
+                <td>Feb 5, 2024</td>
+                <td>8</td>
+                <td><button className="review-btn">Review</button></td>
+              </tr>
             </tbody>
           </table>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 };
 
-export default StudentDetails;
+export default Dashboard;
+

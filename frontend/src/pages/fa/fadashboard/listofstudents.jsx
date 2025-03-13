@@ -5,14 +5,29 @@ const students = [
   { name: "Rock", rollNo: "B22xxxxxx", points: 25 },
   { name: "Selma", rollNo: "B22xxxxxx", points: 16 },
   { name: "Sandra", rollNo: "B22xxxxxx", points: 28 },
+  { name: "tharun", rollNo: "B221097cs", points: 25 },
+  { name: "raju", rollNo: "B22xxxxxx", points: 16 },
+  { name: "ricky", rollNo: "B22xxxxxx", points: 28 },
+  { name: "lucky", rollNo: "B22xxxxxx", points: 25 },
+  { name: "teja", rollNo: "B22xxxxxx", points: 16 },
+  { name: "siddu", rollNo: "B22xxxxxx", points: 28 },
+  { name: "lokesh", rollNo: "B22xxxxxx", points: 25 },
+  { name: "Sriram", rollNo: "B22xxxxxx", points: 16 },
+  { name: "harsha", rollNo: "B22xxxxxx", points: 28 },
 ];
 
 export default function StudentList() {
   const [search, setSearch] = useState("");
 
+  
   const filteredStudents = students.filter((student) =>
-    student.name.toLowerCase().includes(search.toLowerCase())
+    student.name.toLowerCase().includes(search.toLowerCase()) ||
+    student.rollNo.toLowerCase().includes(search.toLowerCase()) ||
+    student.points.toString().includes(search)
   );
+  
+    
+  
 
   return (
     <div style={{ padding: "1.5rem" }}>
