@@ -1,5 +1,6 @@
 import React from "react";
 import "./activities.css";
+
 import { FaStar } from "react-icons/fa";
 
 const activities = [

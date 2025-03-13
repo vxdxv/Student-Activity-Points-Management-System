@@ -1,115 +1,75 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./dashboard.css"; 
 
 const StudentDashboard = () => {
   return (
-    <div className="container-fluid">
-      <div className="row">
-        {/* Sidebar Space */}
-        <div className="col-md-2 vh-100"></div>
+    <div className="dashboard-container">
+      <div className="sidebar"></div>
+      <div className="main-content">
+        <div className="header">
+          <h5 className="dashboard-title">Student Portal Dashboard</h5>
+          {/* <div className="profile-section">
+            <img
+              src="https://via.placeholder.com/40"
+              alt="profile"
+              className="profile-image"
+            />
+            <span>John Doe</span>
+          </div> */}
+        </div>
 
-        {/* Main Content */}
-        <div className="col-md-10 p-4">
-          {/* Header */}
-          <div className="d-flex justify-content-between align-items-center">
-          <h5 style={{ 
-  textAlign: "center", 
-  fontSize: "32px", 
-  fontWeight: "bold", 
-  textTransform: "uppercase" ,
-  marginLeft: "500px"
-}}>
-  Student Portal Dashboard
-</h5>
+        {/* Welcome Banner */}
+        <div className="welcome-banner">
+          <h3>Welcome back, John!</h3>
+          <p>September 4, 2023 | B220584CS</p>
+        </div>
 
-            <div className="d-flex align-items-center">
-              <img
-                src="https://via.placeholder.com/40"
-                alt="profile"
-                className="rounded-circle me-2"
-              />
-              <span>John Doe</span>
-            </div>
+        {/* Progress Section */}
+        <div className="progress-section">
+          <div className="progress-box">
+            <h4>14</h4>
+            <p>Total Department Points</p>
           </div>
-
-          {/* Welcome Banner */}
-          <div className="text-white p-4 rounded mt-3" style={{ backgroundColor: "#6f42c1" }}>
-            <h3>Welcome back, John!</h3>
-            <p>September 4, 2023 | B220584CS</p>
+          <div className="progress-box">
+            <h4>2</h4>
+            <p>Total Institutional Points</p>
           </div>
-
-          {/* Progress Section */}
-          <div className="row mt-4">
-            <div className="col-md-4 text-center">
-              <div className="bg-light p-3 rounded">
-                <h4>14</h4>
-                <p>Total Department Points</p>
-              </div>
-            </div>
-            <div className="col-md-4 text-center">
-              <div className="bg-light p-3 rounded">
-                <h4>2</h4>
-                <p>Total Institutional Points</p>
-              </div>
-            </div>
-            <div className="col-md-4 text-center">
-              <div className="bg-light p-3 rounded">
-                <h4>16</h4>
-                <p>Total Activity Points</p>
-              </div>
-            </div>
+          <div className="progress-box">
+            <h4>16</h4>
+            <p>Total Activity Points</p>
           </div>
+        </div>
 
-          {/* Activity History */}
-          <div className="mt-4">
-          <h5 style={{ 
-            textAlign: "center", 
-            fontSize: "24px", 
-            fontWeight: "bold", 
-            textTransform: "uppercase", 
-            marginLeft:"-1330px",
-            marginTop:"50px"
-          }}>
-            Activity History
-          </h5>
+        {/* Activity History */}
+        <div className="activity-section">
+          <h5 className="section-title">Activity History</h5>
+          <table className="activity-table">
+            <thead>
+              <tr>
+                <th>Activity Name</th>
+                <th>Institute or Departmental</th>
+                <th>Activity Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Value Education Quiz</td>
+                <td>Departmental</td>
+                <td>--</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-            <table className="table table-bordered">
-              <thead>
-                <tr>
-                  <th>Activity Name</th>
-                  <th>Institute or Departmental</th>
-                  <th>Activity Points</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Value Education Quiz</td>
-                  <td>Departmental</td>
-                  <td>--</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-
-          <div className="mt-4">
-            <h5 style={{ 
-              textAlign: "center", 
-              fontSize: "24px", 
-              fontWeight: "bold", 
-              textTransform: "uppercase", 
-              marginLeft:"-1330px",
-              marginTop:"50px",
-              marginBottom:"30px"
-            }}>
-              Announcements
-            </h5>
-            <div className="bg-light p-3 rounded">
-              <h6>1. FA Meeting 2 Postponement</h6>
-              <p>FA meeting is postponed to 18th March 2025</p>
-              <h6>2. Certificate Upload Deadline</h6>
-              <p>Deadline for Winter semester: 20th April 2025</p>
-            </div>
+        {/* Announcements */}
+        <div className="announcement-section">
+          <h5 className="section-title">Announcements</h5>
+          <div className="announcement-box">
+            <h6>1. FA Meeting 2 Postponement</h6>
+            <p>FA meeting is postponed to 18th March 2025</p>
+            <br></br>
+            <h6>2. Certificate Upload Deadline</h6>
+            <p>Deadline for Winter semester: 20th April 2025</p>
           </div>
         </div>
       </div>
