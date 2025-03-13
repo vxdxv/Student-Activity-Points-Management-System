@@ -1,5 +1,8 @@
 import React from 'react';
-import './student.css';
+import './activities.css';
+
+
+import { FaStar } from "react-icons/fa";
 
 const activities = [
   { title: "Value Education Quiz", branch: "CS", type: "Departmental", date: "12-Dec-2024", points: 5 },
@@ -10,31 +13,30 @@ const activities = [
 
 const ActivityHistory = () => {
   return (
-    <div className="content">
-      <div className="activity-history">
-        <h1>Activity History</h1>
-        <hr />
-        <div className="activity-history-contents">
-          {activities.map((activity, index) => (
-            <div className="activity-history-content" key={index}>
-              <div className="activity-history-content-left">
-                <h1>{activity.title}</h1>
-                <div className="bind">
-                  {activity.branch && <span>Branch: {activity.branch}</span>}
-                  <span>Activity Type: {activity.type}</span>
-                </div>
-              </div>
-              <div className="activity-history-content-middle">
-                <span>Date</span>
-                <span>{activity.date}</span>
-              </div>
-              <div className="activity-history-content-right">
-                <span>Points</span>
-                <h1>{activity.points}</h1>
-              </div>
+    <div className="activities-container">
+      <h2 style={{ 
+        textAlign: "center", 
+        fontSize: "32px", 
+        fontWeight: "bold", 
+        textTransform: "uppercase" 
+        }}>
+        Activity History
+      </h2>
+      <div className="activities-list">
+        {activities.map((activity, index) => (
+          <div key={index} className="activity-card">
+            <div className="activity-details">
+              <h3>{activity.title}</h3>
+              <p>Date: {activity.date}</p>
+              {activity.branch && <p>Branch: {activity.branch}</p>}
+              <p>Activity type: {activity.type}</p>
             </div>
-          ))}
-        </div>
+            <div className="activity-points">
+              <span>{activity.points}</span>
+              <FaStar className="star-icon" />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

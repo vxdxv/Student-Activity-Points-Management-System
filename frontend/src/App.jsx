@@ -1,7 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext"; // Assuming your AuthContext is here
+
+// Your existing imports
 import AdminLayout from "./layouts/AdminLayout";
 import StudentLayout from "./layouts/StudentLayout";
-// import FacultyLayout from "./layouts/facultylayout";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageUsers from "./pages/admin/ManageUsers";
@@ -16,44 +19,73 @@ import Guidelines from "./pages/student/Guidelines";
 import RequestForm from "./pages/student/RequestForm";
 import Tracking from "./pages/student/Tracking";
 import AnnouncementDetail from "./pages/student/AnnouncementDetail";
+import LoginPage from "./pages/login/Login";
 
-// import FacultyDashboard from "./pages/faculty/Dashboard";
-// import ManageProjects from "./pages/faculty/ManageProjects";
-// import ApproveRequests from "./pages/faculty/ApproveRequests";
+const ProtectedRoute = ({ children }) => {
+    const { user, loading } = useContext(AuthContext);
+
+    if (loading) {
+        console.log('Loading user data...');
+        return <div>Loading...</div>;
+    }
+
+    if (!user) {
+        console.warn("No user found, redirecting to login");
+        return <Navigate to="/login" replace />;
+    }
+
+    console.log("User in ProtectedRoute:", user);
+    return children;
+};
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* Admin Routes */}
-        <Route path="/admin/*" element={<AdminLayout />}>
-          <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="users" element={<ManageUsers />} />
-          <Route path="activities" element={<ManageActivities />} />
-          <Route path="guidelines" element={<AdminGuidelines />} />
-        </Route>
+    return (
+        // <Router>
+            <Routes>
+                {/* Admin Routes */}
+                <Route
+                    path="/admin/*"
+                    element={
+                        <ProtectedRoute>
+                            <AdminLayout />
+                        </ProtectedRoute>
+                    }
+                >
+                    <Route index element={<AdminDashboard />} />
+                    <Route path="dashboard" element={<AdminDashboard />} />
+                    <Route path="users" element={<ManageUsers />} />
+                    <Route path="activities" element={<ManageActivities />} />
+                    <Route path="guidelines" element={<AdminGuidelines />} />
+                </Route>
 
-        {/* Student Routes */}
-        <Route path="/student/*" element={<StudentLayout />}>
-          <Route path="dashboard" element={<StudentDashboard />} />
-          <Route path="tracking" element={<Tracking />} />
-          <Route path="activity-history" element={<ActivityHistory />} />
-          <Route path="request-form" element={<RequestForm />} />
-          <Route path="activities" element={<Activities />} />
-          <Route path="help" element={<Guidelines/>} />
-          <Route path="announcements" element={<Announcements/>} />
-          <Route path="announcements/:id" element={<AnnouncementDetail />} />
-        </Route>
+                {/* Student Routes */}
+                <Route
+                    path="/student/*"
+                    element={
+                        <ProtectedRoute>
+                            <StudentLayout />
+                        </ProtectedRoute>
+                    }
+                >
+                    <Route index element={<StudentDashboard />} />
+                    <Route path="dashboard" element={<StudentDashboard />} />
+                    <Route path="tracking" element={<Tracking />} />
+                    <Route path="activity-history" element={<ActivityHistory />} />
+                    <Route path="request-form" element={<RequestForm />} />
+                    <Route path="activities" element={<Activities />} />
+                    <Route path="help" element={<Guidelines />} />
+                    <Route path="announcements" element={<Announcements />} />
+                    <Route path="announcements/:id" element={<AnnouncementDetail />} />
+                </Route>
 
-        {/* Faculty Routes */}
-        {/*<Route path="/faculty/*" element={<FacultyLayout />}>
-          <Route path="dashboard" element={<FacultyDashboard />} />
-          <Route path="manage-projects" element={<ManageProjects />} />
-          <Route path="approve" element={<ApproveRequests />} />
-        </Route> */}
-      </Routes>
-    </Router>
-  );
+                {/* Login Route */}
+                <Route path="/login" element={<LoginPage />} />
+
+                {/* Redirect unknown routes to login */}
+                <Route path="*" element={<LoginPage />} />
+            </Routes>
+        // </Router>
+    );
 }
 
 export default App;
