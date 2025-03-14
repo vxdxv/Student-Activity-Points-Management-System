@@ -24,13 +24,8 @@ const SideBar = ({role}) => {
             {name:"Dashboard",url:"/student/dashboard",image:assets.dashboard},
             {name:"Tracking",url:"/student/tracking",image:<i class="bi bi-radar"></i>},
             {name:"Activity History",url:"/student/activity-history",image:<i class="bi bi-hourglass-bottom"></i>},
-<<<<<<< HEAD
             {name:"Activities",url:"/student/activities",image:<i class="bi bi-hourglass-bottom"></i>},
             {name:"Request Form",url:"/student/request-form",image:<i class="bi bi-file-earmark-text"></i>},
-=======
-            {name:"Activities", url: "/student/activities", image:<i className="bi bi-file-earmark-text"></i>},
-            {name:"Request Form",url:"/student/request-form",image:<i class="bi bi-pencil"></i>},
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
             {name:"Guidelines",url:"/student/help",image:assets.guidelines},
         ]},
         {view:"fa",links:[
@@ -76,11 +71,7 @@ const SideBar = ({role}) => {
     <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
     <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
     </svg>
-<<<<<<< HEAD
                 <button onClick={handlelogout} style={{display: isOpen ? 'flex' : 'none'}}>Logout</button>
-=======
-                <Link to='/Login' style={{display: isOpen ? 'flex' : 'none'}}>Logout</Link>
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
     </div>
     </div>
   )
