@@ -77,6 +77,10 @@ const RequestForm = () => {
       <main className="request-form-container">
         <div className="header">
           <h2 className="title">Request for Points</h2>
+<<<<<<< HEAD
+=======
+          <p style ={{marginBottom: "40px", marginLeft:"250px"}}>Select activity category, activity type, and upload proof to claim your points!</p>
+>>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -96,7 +100,11 @@ const RequestForm = () => {
                 Other
               </label>
             </div>
+<<<<<<< HEAD
           
+=======
+            {errors.category && <span className="error">{errors.category}</span>}
+>>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
           </div>
 
           <div className="form-group">
@@ -115,6 +123,7 @@ const RequestForm = () => {
               </>
             ) : (
               <>
+<<<<<<< HEAD
               <div>
               <input type="text" name="activityName" placeholder="Enter activity name" value={formData.activityName} onChange={handleChange} />
               {errors.activityName && <span className="error">{errors.activityName}</span>}
@@ -125,6 +134,13 @@ const RequestForm = () => {
               {errors.date && <span className="error">{errors.date}</span>}
               </div>
                 
+=======
+                <input type="text" name="activityName" placeholder="Enter activity name" value={formData.activityName} onChange={handleChange} />
+                {errors.activityName && <span className="error">{errors.activityName}</span>}
+
+                <input type="date" name="date" value={formData.date} onChange={handleChange} />
+                {errors.date && <span className="error">{errors.date}</span>}
+>>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
               </>
             )}
           </div>
@@ -132,6 +148,7 @@ const RequestForm = () => {
           {formData.isCustomActivity && (
             <div className="form-row">
             <div className="form-group">
+<<<<<<< HEAD
               <div>
               <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} />
               {errors.location && <span className="error">{errors.location}</span>}
@@ -149,6 +166,17 @@ const RequestForm = () => {
               {errors.description && <span className="error">{errors.description}</span>}
               </div>
              
+=======
+              <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} />
+              {errors.location && <span className="error">{errors.location}</span>}
+              <input type="text" name="organization" placeholder="Name of Organisation" value={formData.organization} onChange={handleChange} />
+              {errors.organization && <span className="error">{errors.organization}</span>}
+            </div>
+      
+            <div className="form-description">
+              <textarea name="description" placeholder="Description of the event" value={formData.description} onChange={handleChange} />
+              {errors.description && <span className="error">{errors.description}</span>}
+>>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
             </div>
             <div className="close">
             <button type="button" className="close-btn" onClick={resetCustomActivity}>Close</button>

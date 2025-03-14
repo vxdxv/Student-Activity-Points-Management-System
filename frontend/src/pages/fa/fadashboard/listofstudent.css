@@ -1,0 +1,64 @@
+.container {
+    padding: 1.5rem;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .search-container {
+    position: relative;
+  }
+  
+  .search-input {
+    padding: 0.5rem 1rem;
+    padding-left: 2.5rem;
+    border-radius: 0.5rem;
+    color: black;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+  
+  .student-table-container {
+    background-color: #e9d5ff;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+  
+  .student-table {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .student-table th {
+    padding-bottom: 0.5rem;
+  }
+  
+  .student-table tr {
+    border-top: 1px solid #ccc;
+  }
+  
+  .student-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  
+  .view-button {
+    background-color: #9333ea;
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+  }
+  
+  .view-button:hover {
+    background-color: #7e22ce;
+  }
+  

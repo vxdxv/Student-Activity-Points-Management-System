@@ -5,60 +5,10 @@
     font-family: 'Poppins';
     scrollbar-width: none;
 }
-span{
-    color: white;
-    font-weight: 300;
-}
 .content{
     position:absolute;
-    top:80px;
-    left:120px;
-}
-.activity-history{
-    font-style: normal;
-    font-weight: 600;
-    line-height: 60px;
-    width:100%;
-    padding:0 10px;
-}
-.activity-history h1{
-    margin:0
-}
-hr{
-    color:gray;
-    opacity: 0.5;
-}
-.activity-history-contents{
-    display: flex;
-flex-direction: column;
-padding: 20px 20px;
-gap:20px;
-width: 80vw;
-height: 70vh;
-overflow-y: auto;
-
-
-/* background-color:aqua */
-}
-.activity-history-content{
-    display:flex;
-    justify-content: space-between;
-    background: #9C6FE4;
-    border-radius: 15px;
-    padding:2px 25px;
-    width: 70vw;
-    cursor:pointer;
-
-}
-
-.activity-history-content-right,.activity-history-content-left,.activity-history-content-middle{
-    display:flex;
-    gap:0;
-    flex-direction:column;
-}
-.activity-history-content-right,.activity-history-content-middle{
-    justify-content: center;
-    text-align: center;
+    top:110px;
+    left:320px;
 }
 
 /*tracking*/
@@ -66,14 +16,17 @@ overflow-y: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 75vw; /* Reduce width */
+    margin-left:55%;
     font-style: normal;
     font-weight: 500;
     font-size: 16px; /* Reduce font size */
 }
 
 .tracking h1 {
-    font-size: 20px; /* Reduce heading size */
+    margin-left:15%;
+    font-size: 32px; 
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .tracking-section {
@@ -81,7 +34,7 @@ overflow-y: auto;
     flex-direction: column;
     gap: 8px;
     background-color: #DDD5F3;
-    width: 30vw; /* Reduce width */
+    width: 50vw; /* Reduce width */
     height: auto; /* Auto height based on content */
     border-radius: 10px;
     padding: 15px; /* Reduce padding */
@@ -92,12 +45,11 @@ overflow-y: auto;
 .tracking-items h3 {
     font-weight: 400;
     color: white;
-    font-size: 14px; /* Reduce text size */
+    font-size: 20px; /* Reduce text size */
 }
 
 #heading {
-    margin-bottom: 10px;
-    background-color: #925FE2;
+    margin-bottom: 0.8vw;
     color: black;
     padding: 5px 15px; /* Adjust padding */
     border-radius: 8px;
@@ -107,7 +59,7 @@ overflow-y: auto;
 .tracking span {
     padding: 4px 10px; /* Reduce padding */
     border-radius: 8px;
-    font-size: 12px; /* Reduce font size */
+    font-size: 20px; /* Reduce font size */
 }
 
 .tracking-items {
