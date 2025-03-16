@@ -14,12 +14,12 @@ const activities = [
 const ActivityHistory = () => {
   return (
     <div className="activities-container">
-      <h2 style={{ 
-        textAlign: "center", 
-        fontSize: "32px", 
-        fontWeight: "bold", 
-        textTransform: "uppercase" 
-        }}>
+      <h2 style={{
+        textAlign: "center",
+        fontSize: "32px",
+        fontWeight: "bold",
+        textTransform: "uppercase"
+      }}>
         Activity History
       </h2>
       <div className="activities-list">

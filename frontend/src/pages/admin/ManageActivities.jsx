@@ -94,23 +94,23 @@ const ActivityManagement = () => {
             </div>
             <div className="input-group">
               <label>Name:</label>
-              <input type="text" value={newActivity.name} onChange={(e) => setNewActivity({...newActivity, name: e.target.value})} />
+              <input type="text" value={newActivity.name} onChange={(e) => setNewActivity({ ...newActivity, name: e.target.value })} />
             </div>
             <div className="input-group">
               <label>Date:</label>
-              <input type="date" value={newActivity.date} onChange={(e) => setNewActivity({...newActivity, date: e.target.value})} />
+              <input type="date" value={newActivity.date} onChange={(e) => setNewActivity({ ...newActivity, date: e.target.value })} />
             </div>
             <div className="input-group">
               <label>Type:</label>
-              <input type="text" value={newActivity.type} onChange={(e) => setNewActivity({...newActivity, type: e.target.value})} />
+              <input type="text" value={newActivity.type} onChange={(e) => setNewActivity({ ...newActivity, type: e.target.value })} />
             </div>
             <div className="input-group">
               <label>Location:</label>
-              <input type="text" value={newActivity.location} onChange={(e) => setNewActivity({...newActivity, location: e.target.value})} />
+              <input type="text" value={newActivity.location} onChange={(e) => setNewActivity({ ...newActivity, location: e.target.value })} />
             </div>
             <div className="input-group">
               <label>Description:</label>
-              <input type="text" value={newActivity.description} onChange={(e) => setNewActivity({...newActivity, description: e.target.value})} />
+              <input type="text" value={newActivity.description} onChange={(e) => setNewActivity({ ...newActivity, description: e.target.value })} />
             </div>
             <button className="submit-btn" onClick={handleAddActivity}>Add</button>
           </div>

@@ -81,7 +81,7 @@ const RequestForm = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-          <label style ={{marginBottom:"220px"}}>Activity Category:</label>
+            <label style={{ marginBottom: "220px" }}>Activity Category:</label>
             <div className="radio-group">
               <label>
                 <input type="radio" name="category" value="Institutional" onChange={handleChange} />
@@ -96,7 +96,7 @@ const RequestForm = () => {
                 Other
               </label>
             </div>
-          
+
           </div>
 
           <div className="form-group">
@@ -115,58 +115,58 @@ const RequestForm = () => {
               </>
             ) : (
               <>
-              <div>
-              <input type="text" name="activityName" placeholder="Enter activity name" value={formData.activityName} onChange={handleChange} />
-              {errors.activityName && <span className="error">{errors.activityName}</span>}
-              </div>
-               
-              <div>
-              <input type="date" name="date" value={formData.date} onChange={handleChange} />
-              {errors.date && <span className="error">{errors.date}</span>}
-              </div>
-                
+                <div>
+                  <input type="text" name="activityName" placeholder="Enter activity name" value={formData.activityName} onChange={handleChange} />
+                  {errors.activityName && <span className="error">{errors.activityName}</span>}
+                </div>
+
+                <div>
+                  <input type="date" name="date" value={formData.date} onChange={handleChange} />
+                  {errors.date && <span className="error">{errors.date}</span>}
+                </div>
+
               </>
             )}
           </div>
 
           {formData.isCustomActivity && (
             <div className="form-row">
-            <div className="form-group">
-              <div>
-              <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} />
-              {errors.location && <span className="error">{errors.location}</span>}
+              <div className="form-group">
+                <div>
+                  <input type="text" name="location" placeholder="Location" value={formData.location} onChange={handleChange} />
+                  {errors.location && <span className="error">{errors.location}</span>}
+                </div>
+                <div>
+                  <input type="text" name="organization" placeholder="Name of Organisation" value={formData.organization} onChange={handleChange} />
+                  {errors.organization && <span className="error">{errors.organization}</span>}
+                </div>
+
               </div>
-              <div>
-              <input type="text" name="organization" placeholder="Name of Organisation" value={formData.organization} onChange={handleChange} />
-              {errors.organization && <span className="error">{errors.organization}</span>}
+
+              <div className="form-description">
+                <div>
+                  <textarea name="description" placeholder="Description of the event" value={formData.description} onChange={handleChange} />
+                  {errors.description && <span className="error">{errors.description}</span>}
+                </div>
+
               </div>
-              
-            </div>
-      
-            <div className="form-description">
-              <div>
-              <textarea name="description" placeholder="Description of the event" value={formData.description} onChange={handleChange} />
-              {errors.description && <span className="error">{errors.description}</span>}
+              <div className="close">
+                <button type="button" className="close-btn" onClick={resetCustomActivity}>Close</button>
               </div>
-             
             </div>
-            <div className="close">
-            <button type="button" className="close-btn" onClick={resetCustomActivity}>Close</button>
-            </div>
-          </div>
           )}
 
-<div className="form-upload">
-  <label>Upload PDF Proof:</label>
-  <div className="custom-file-upload">
-    <label htmlFor="file-upload" className="upload-btn">
-      Choose File
-    </label>
-    <input id="file-upload" type="file" accept="application/pdf" onChange={handleFileChange} />
-    <span className="file-name">{formData.file ? formData.file.name : "No file chosen"}</span>
-  </div>
-  {errors.file && <span className="error">{errors.file}</span>}
-</div>
+          <div className="form-upload">
+            <label>Upload PDF Proof:</label>
+            <div className="custom-file-upload">
+              <label htmlFor="file-upload" className="upload-btn">
+                Choose File
+              </label>
+              <input id="file-upload" type="file" accept="application/pdf" onChange={handleFileChange} />
+              <span className="file-name">{formData.file ? formData.file.name : "No file chosen"}</span>
+            </div>
+            {errors.file && <span className="error">{errors.file}</span>}
+          </div>
 
 
           <button type="submit" className="submit-btn">Submit</button>

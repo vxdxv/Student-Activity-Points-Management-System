@@ -133,63 +133,63 @@ const ManageUsers = () => {
       {isFAModalOpen && (
         <div className="modal-overlay" onClick={() => setIsFAModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <div className="title">
-            <h2>Add FA</h2>
-            
-            <span className="close" onClick={() => setIsFAModalOpen(false)}>x</span>
+            <div className="title">
+              <h2>Add FA</h2>
+
+              <span className="close" onClick={() => setIsFAModalOpen(false)}>x</span>
             </div>
             <div className='input-group'>
-            <label>Name:</label>
-            <input type="text" placeholder="Enter name" />
+              <label>Name:</label>
+              <input type="text" placeholder="Enter name" />
             </div>
             <div className='input-group'>
-            <label>Faculty ID:</label>
-            <input type="text" placeholder="Enter Faculty ID" />
+              <label>Faculty ID:</label>
+              <input type="text" placeholder="Enter Faculty ID" />
             </div>
             <div className='input-group'>
-            <label>Email:</label>
-            <input type="email" placeholder="Enter email" />
+              <label>Email:</label>
+              <input type="email" placeholder="Enter email" />
             </div>
             <div className='input-group'>
-            <label>Department:</label>
-            <input type="text" placeholder="Enter department" />
+              <label>Department:</label>
+              <input type="text" placeholder="Enter department" />
             </div>
             <button className="submit-btn">Submit</button>
           </div>
         </div>
       )}
 
-{isStudentModalOpen && (
+      {isStudentModalOpen && (
         <div className="modal-overlay" onClick={() => setIsStudentModalOpen(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <div className="title">
-            <h2>Add Student</h2>
-            <span className="close" onClick={() => setIsStudentModalOpen(false)}>x</span>
+              <h2>Add Student</h2>
+              <span className="close" onClick={() => setIsStudentModalOpen(false)}>x</span>
             </div>
-           
+
             <div className='input-group'>
-            <label>Name:</label>
-            <input type="text" placeholder="Enter name" />
-            </div>
-            <div className='input-group'>
-           <label>Roll No:</label>
-           <input type="text" placeholder="Enter roll number" />
-           </div>
-           <div className='input-group'>
-            <label>Email:</label>
-            <input type="email" placeholder="Enter email" />
+              <label>Name:</label>
+              <input type="text" placeholder="Enter name" />
             </div>
             <div className='input-group'>
-           <label>Department:</label>
-           <input type="text" placeholder="Enter department" />
-           </div>
-           <div className='input-group'>
-            <label>FA In-Charge:</label>
-            <input type="text" placeholder="Enter FA name" />
+              <label>Roll No:</label>
+              <input type="text" placeholder="Enter roll number" />
             </div>
-           
+            <div className='input-group'>
+              <label>Email:</label>
+              <input type="email" placeholder="Enter email" />
+            </div>
+            <div className='input-group'>
+              <label>Department:</label>
+              <input type="text" placeholder="Enter department" />
+            </div>
+            <div className='input-group'>
+              <label>FA In-Charge:</label>
+              <input type="text" placeholder="Enter FA name" />
+            </div>
+
             <button className="submit-btn">Submit</button>
-            
+
           </div>
         </div>
       )}
@@ -207,8 +207,8 @@ const ManageUsers = () => {
             </div>
             <div className='input-group'>
               <label>{editData.type === 'student' ? 'Roll No' : 'Faculty ID'}:</label>
-              <input type="text" value={editData.type === 'student' ? editData.rollNo : editData.facultyId} 
-                     onChange={(e) => setEditData({ ...editData, [editData.type === 'student' ? 'rollNo' : 'facultyId']: e.target.value })} />
+              <input type="text" value={editData.type === 'student' ? editData.rollNo : editData.facultyId}
+                onChange={(e) => setEditData({ ...editData, [editData.type === 'student' ? 'rollNo' : 'facultyId']: e.target.value })} />
             </div>
             <div className='input-group'>
               <label>Email:</label>

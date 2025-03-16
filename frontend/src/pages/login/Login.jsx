@@ -1,34 +1,10 @@
-<<<<<<< HEAD
-import React, { useState,useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { ChevronRight, UserCircle2, Users, ArrowRight } from 'lucide-react';
 import twoPersonImg from '../../assets/twopersons.png';
 import { AuthContext } from '../../context/AuthContext';
 const LoginPage = () => {
 
-    const { loginstudent,loginfa } = useContext(AuthContext);
-=======
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ChevronRight, UserCircle2, Users, ArrowRight } from 'lucide-react';
-import twoPersonImg from '../../assets/twopersons.png';
-const LoginPage = () => {
-  const [activeOption, setActiveOption] = useState(null);
-  const navigate = useNavigate();
-
-  const handleOptionClick = (option) => {
-    setActiveOption(option);
-    console.log(`Selected login option: ${option}`);
-    if (option === 'student') {
-      navigate('/student/dashboard');
-    } else if (option === 'staff') {
-      navigate('/staff-login');
-    }
-  };
-
-  const handleStaffClick = () => {
-    navigate('/staff-login');
-  };
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
+  const { loginstudent, loginfa } = useContext(AuthContext);
 
   return (
     <div className="login-container">
@@ -240,11 +216,7 @@ const LoginPage = () => {
             <div style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               <button
                 className="login-option"
-<<<<<<< HEAD
-                onClick={() =>loginstudent()}
-=======
-                onClick={() => handleOptionClick('student')}
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
+                onClick={() => loginstudent()}
               >
                 <div className="option-text">
                   <h3>Student</h3>
@@ -256,11 +228,7 @@ const LoginPage = () => {
               </button>
             </div>
             <div style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-<<<<<<< HEAD
-              <button className="login-option"  onClick={() =>loginfa()}>
-=======
-              <button className="login-option" onClick={handleStaffClick}>
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
+              <button className="login-option" onClick={() => loginfa()}>
                 <div className="option-text">
                   <h3>Staff</h3>
                   <p>Exclusive to staff members only.</p>
@@ -274,9 +242,9 @@ const LoginPage = () => {
                 </div>
               </button>
             </div>
-          </div>
-        </div>
-      </div>
+          </div >
+        </div >
+      </div >
       <div className="right-panel">
         <div className="bg-circle1"></div>
         <div className="bg-circle2"></div>
@@ -286,12 +254,8 @@ const LoginPage = () => {
           <img src={twoPersonImg} alt="TwoPersons" />
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
-<<<<<<< HEAD
 export default LoginPage;
-=======
-export default LoginPage;
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b

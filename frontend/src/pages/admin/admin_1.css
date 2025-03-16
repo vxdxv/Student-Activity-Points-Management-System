@@ -1,5 +1,3 @@
-
-
 /* Dashboard Container */
 .stats {
     display: flex;
@@ -7,7 +5,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-    margin-top:50px;
+    margin-top: 50px;
 }
 
 .stat-card {
@@ -32,7 +30,9 @@
     margin-bottom: 10px;
 }
 
-.activities, .guidelines ,.user{
+.activities,
+.guidelines,
+.user {
     margin-top: 4%;
     padding: 2% 2%;
     background: white;
@@ -40,8 +40,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    width: 100%; /* Ensure full width */
-    height:20%;
+    width: 100%;
+    /* Ensure full width */
+    height: 20%;
 }
 
 .activity-card {
@@ -49,11 +50,12 @@
     color: white;
     padding: 2% 3%;
     border-radius: 12px;
-    height: 100px; 
+    height: 100px;
     max-width: 100%;
 }
 
-.guidelines-card,.userr-card {
+.guidelines-card,
+.userr-card {
     background: linear-gradient(135deg, #9a5bd4, #7e2cdb);
     color: white;
     padding: 2% 3%;
@@ -61,7 +63,8 @@
     width: 100%;
     height: 80%;
     display: flex;
-    justify-content: space-between; /* Push icon to right */
+    justify-content: space-between;
+    /* Push icon to right */
     align-items: center;
 }
 
@@ -75,11 +78,12 @@
 }
 
 .guidelines-button:hover {
-    color: #f1c40f; /* Change color on hover */
+    color: #f1c40f;
+    /* Change color on hover */
     transform: scale(1.1);
 }
-.activity-button
-{
+
+.activity-button {
     color: black;
     padding: 10px 20px;
     border-radius: 5px;
@@ -91,41 +95,47 @@
     bottom: 850px;
     right: 1000px;
 }
+
 .user-btn {
     color: black;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
-    font-size:26px;
+    font-size: 26px;
     cursor: pointer;
     font-size: 1rem;
     transition: 0.3s;
     position: absolute;
     bottom: 200px;
     right: 1000px;
-   
+
 }
+
 .activity-button:hover {
-    font-weight:bold;
+    font-weight: bold;
 }
+
 .user-btn:hover {
-    font-weight:bold;
+    font-weight: bold;
 }
 
 
 /*guildelines*/
 .container-fluid {
     width: 100%;
-    max-width: 1200px; 
-    margin:auto;
+    max-width: 1200px;
+    margin: auto;
     padding: 20px;
 }
+
 .card {
-    width: 100%; /* Use more space */
-    max-width: 2000px; /* Prevents it from getting too wide */
+    width: 100%;
+    /* Use more space */
+    max-width: 2000px;
+    /* Prevents it from getting too wide */
     padding: 20px;
-    top:150px;
-    position:absolute;
+    top: 150px;
+    position: absolute;
 }
 
 .flex {
@@ -133,13 +143,13 @@
     width: 100% !important;
 }
 
-  .guidelines-title {
+.guidelines-title {
     font-size: 32px;
-    font-weight: bold;  
+    font-weight: bold;
     text-transform: uppercase;
-  }
-  
-  .activity-guideline-button {
+}
+
+.activity-guideline-button {
     background: #6c27ec;
     color: white;
     padding: 10px 20px;
@@ -152,31 +162,40 @@
     bottom: 250px;
     right: 250px;
 }
+
 .activity-guideline-button:hover {
     background: #5720b7;
-}/* Alert Box */
+}
+
+/* Alert Box */
 .alert-info {
-    background-color: #e6f4ff; /* Light blue background */
-    color: #0056b3; /* Dark blue text */
-    border-left: 5px solid #007bff; /* Left border for emphasis */
-    border-radius: 10px; /* Rounded corners */
-    padding: 12px 16px; /* Inner spacing */
+    background-color: #e6f4ff;
+    /* Light blue background */
+    color: #0056b3;
+    /* Dark blue text */
+    border-left: 5px solid #007bff;
+    /* Left border for emphasis */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 12px 16px;
+    /* Inner spacing */
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width:fit-content;
-  }
-  
-  .alert-info i {
+    width: fit-content;
+}
+
+.alert-info i {
     font-size: 20px;
     margin-right: 8px;
-  }
-  
-  .alert-info p {
+}
+
+.alert-info p {
     margin: 0;
     font-size: 16px;
-  }
-  /* Popup Overlay */
+}
+
+/* Popup Overlay */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -187,71 +206,77 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  /* Popup Box */
-  .popup-box {
+}
+
+/* Popup Box */
+.popup-box {
     background: white;
     padding: 20px;
     border-radius: 10px;
     width: 800px;
-    height:800px;
+    height: 800px;
     text-align: center;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  .popup-box input[type="text"] {
-    width: 600px;  /* Make it almost full width */
-    height: 600px; /* Increase height */
-    font-size: 16px; /* Make text more readable */
+}
+
+.popup-box input[type="text"] {
+    width: 600px;
+    /* Make it almost full width */
+    height: 600px;
+    /* Increase height */
+    font-size: 16px;
+    /* Make text more readable */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
-  }
-  
-  
-  /* Popup Buttons */
-  .popup-buttons {
-    margin-top: 15px;
-  }
-  
-  .save-button {
-    background: #6c27ec;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-    bottom:150px;
-    left:750px;
-    position:absolute;
-  }
-  .close-button {
-    background: #6c27ec;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 0.3s;
-    bottom:150px;
-    right:750px;
-    position:absolute;
-  }
-  
-  .save-button:hover, .close-button:hover {
-    background: #5720b7;
-  }
+}
 
-  .guidelines-header {
+
+/* Popup Buttons */
+.popup-buttons {
+    margin-top: 15px;
+}
+
+.save-button {
+    background: #6c27ec;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    bottom: 150px;
+    left: 750px;
+    position: absolute;
+}
+
+.close-button {
+    background: #6c27ec;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    bottom: 150px;
+    right: 750px;
+    position: absolute;
+}
+
+.save-button:hover,
+.close-button:hover {
+    background: #5720b7;
+}
+
+.guidelines-header {
     display: flex;
     font-weight: bold;
     margin-bottom: 10px;
     padding: 10px;
-    gap:10%;
+    gap: 10%;
 }
 
 .guidelines-list {
@@ -262,7 +287,7 @@
 .guideline-item {
     display: flex;
     justify-content: space-between;
-    width:1300px;
+    width: 1300px;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
@@ -273,17 +298,17 @@
     gap: 15px;
 }
 
-.edit-icon{
+.edit-icon {
     cursor: pointer;
     transition: color 0.3s;
-    position:absolute;
-    right:300px;
+    position: absolute;
+    right: 300px;
 }
 
 .delete-icon {
     cursor: pointer;
     transition: color 0.3s;
-    position:absolute;
+    position: absolute;
     right: 180px;
 }
 
@@ -294,5 +319,3 @@
 .delete-icon:hover {
     color: red;
 }
-
-  

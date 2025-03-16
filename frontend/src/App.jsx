@@ -5,6 +5,7 @@ import { AuthContext } from "./context/AuthContext"; // Assuming your AuthContex
 // Your existing imports
 import AdminLayout from "./layouts/AdminLayout";
 import StudentLayout from "./layouts/StudentLayout";
+import FaLayout from "./layouts/FaLayout";
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ManageUsers from "./pages/admin/ManageUsers";
@@ -21,7 +22,13 @@ import Tracking from "./pages/student/Tracking";
 import AnnouncementDetail from "./pages/student/AnnouncementDetail";
 import LoginPage from "./pages/login/Login";
 
-<<<<<<< HEAD
+import FaDashboard from "./pages/fa/fadashboard/FaDashboard";
+import Announcement from "./pages/fa/fadashboard/Faannouncements";
+import StudentDetails from "./pages/fa/fadashboard/StudentDetails";
+import Approvals from "./pages/fa/fadashboard/approvals";
+import AnnouncementForm from "./pages/fa/fadashboard/AnnouncementPage";
+
+
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
 
@@ -38,105 +45,71 @@ const ProtectedRoute = ({ children }) => {
     console.log("User in ProtectedRoute:", user);
     return children;
 };
-=======
-import Index from "./pages/login/Login"
-
-import StudentList from "./pages/fa/fadashboard/listofstudents";
-
-import TailwindTest from "./pages/admin/TailwindTest";
-
-import AnnouncementPage from "./pages/fa/fadashboard/AnnouncementPage";
-
-import Faannouncements from "./pages/fa/fadashboard/Faannouncements";
-
-import StudentDetails from "./pages/fa/fadashboard/StudentDetails";
-
-
-// import FacultyDashboard from "./pages/faculty/Dashboard";
-// import ManageProjects from "./pages/faculty/ManageProjects";
-import ApprovalsTable from "./pages/fa/fadashboard/approvals";
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
 
 function App() {
     return (
         // <Router>
-            <Routes>
-                {/* Admin Routes */}
-                <Route
-                    path="/admin/*"
-                    element={
-                        <ProtectedRoute>
-                            <AdminLayout />
-                        </ProtectedRoute>
-                    }
-                >
-                    <Route index element={<AdminDashboard />} />
-                    <Route path="dashboard" element={<AdminDashboard />} />
-                    <Route path="users" element={<ManageUsers />} />
-                    <Route path="activities" element={<ManageActivities />} />
-                    <Route path="guidelines" element={<AdminGuidelines />} />
-                </Route>
+        <Routes>
+            {/* Admin Routes */}
+            <Route
+                path="/admin/*"
+                element={
+                    <ProtectedRoute>
+                        <AdminLayout />
+                    </ProtectedRoute>
+                }
+            >
+                <Route index element={<AdminDashboard />} />
+                <Route path="dashboard" element={<AdminDashboard />} />
+                <Route path="users" element={<ManageUsers />} />
+                <Route path="activities" element={<ManageActivities />} />
+                <Route path="guidelines" element={<AdminGuidelines />} />
+            </Route>
 
-<<<<<<< HEAD
-                {/* Student Routes */}
-                <Route
-                    path="/student/*"
-                    element={
-                        <ProtectedRoute>
-                            <StudentLayout />
-                        </ProtectedRoute>
-                    }
-                >
-                    <Route index element={<StudentDashboard />} />
-                    <Route path="dashboard" element={<StudentDashboard />} />
-                    <Route path="tracking" element={<Tracking />} />
-                    <Route path="activity-history" element={<ActivityHistory />} />
-                    <Route path="request-form" element={<RequestForm />} />
-                    <Route path="activities" element={<Activities />} />
-                    <Route path="help" element={<Guidelines />} />
-                    <Route path="announcements" element={<Announcements />} />
-                    <Route path="announcements/:id" element={<AnnouncementDetail />} />
-                </Route>
+            {/* Student Routes */}
+            <Route
+                path="/student/*"
+                element={
+                    <ProtectedRoute>
+                        <StudentLayout />
+                    </ProtectedRoute>
+                }
+            >
+                <Route index element={<StudentDashboard />} />
+                <Route path="dashboard" element={<StudentDashboard />} />
+                <Route path="tracking" element={<Tracking />} />
+                <Route path="activity-history" element={<ActivityHistory />} />
+                <Route path="request-form" element={<RequestForm />} />
+                <Route path="activities" element={<Activities />} />
+                <Route path="help" element={<Guidelines />} />
+                <Route path="announcements" element={<Announcements />} />
+                <Route path="announcements/:id" element={<AnnouncementDetail />} />
+            </Route>
+            <Route
+                path="/fa/*"
+            // element={
+            //     <ProtectedRoute>
+            //         <FaLayout />
+            //     </ProtectedRoute>
+            // }
+            >
+                <Route index element={<FaDashboard />} />
+                <Route path="dashboard" element={<FaDashboard />} />
+                <Route path="announcements" element={<Announcement />} />
+                <Route path="students" element={<StudentDetails />} />
+                <Route path="approvals" element={<Approvals />} />
+                <Route path="announcements/:id" element={<AnnouncementForm />} />
 
-                {/* Login Route */}
-                <Route path="/login" element={<LoginPage />} />
+            </Route>
 
-                {/* Redirect unknown routes to login */}
-                <Route path="*" element={<LoginPage />} />
-            </Routes>
+            {/* Login Route */}
+            <Route path="/login" element={<LoginPage />} />
+
+            {/* Redirect unknown routes to login */}
+            <Route path="*" element={<LoginPage />} />
+        </Routes>
         // </Router>
     );
-=======
-        {/* Student Routes */}
-        <Route path="/student/*" element={<StudentLayout />}>
-          <Route path="dashboard" element={<StudentDashboard />} />
-          <Route path="tracking" element={<Tracking />} />
-          <Route path="activity-history" element={<ActivityHistory />} />
-          <Route path="request-form" element={<RequestForm />} />
-          <Route path="activities" element={<Activities />} />
-          <Route path="guidelines" element={<Guidelines/>} />
-          <Route path="announcements" element={<Announcements/>} />
-          <Route path="announcements/:id" element={<AnnouncementDetail />} />
-        </Route>
-          <Route path="/list"  element={<StudentList/>}/>
-          {/* <Route path="/details"  element={<Student/>}/> */}
-        <Route path="/tailwind" element={<TailwindTest />} />
-        <Route path="/login"  element={<Index/>}/>
-        <Route path="/approvals" element={<ApprovalsTable />} />
-        <Route path="/announcement" element={<AnnouncementPage />} />
-        <Route path="/Faannouncements" element={<Faannouncements />} />
-        <Route path="/studentdetails" element={<StudentDetails />} />
-        
-        {/* Faculty Routes */}
-        {/*<Route path="/faculty/*" element={<FacultyLayout />}>
-          <Route path="dashboard" element={<FacultyDashboard />} />
-          <Route path="manage-projects" element={<ManageProjects />} />
-          <Route path="approve" element={<ApproveRequests />} />
-        </Route> */}
-      </Routes>
-    </Router>
-  );
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
 }
 
 export default App;

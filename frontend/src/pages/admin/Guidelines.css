@@ -1,41 +1,40 @@
 .guidelines-container {
-    width: 80%;
-    height: 100%;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
-  }
-  
-  h1 {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .guidelines-list {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  
-  .guidelines-list p {
-    margin: 10px 0;
-  }
-  
-  .edit-button {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    padding: 10px 15px;
-    background-color: #a25bb7;
-    color: rgb(9, 6, 10);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .edit-button:hover {
-    background-color: #524ce7;
-  }
-  
+  width: 80%;
+  height: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.guidelines-list {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.guidelines-list p {
+  margin: 10px 0;
+}
+
+.edit-button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  padding: 10px 15px;
+  background-color: #a25bb7;
+  color: rgb(9, 6, 10);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: #524ce7;
+}

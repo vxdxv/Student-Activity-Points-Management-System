@@ -36,8 +36,10 @@
   color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 200px; /* Fixed width */
-  height: 100px; /* Fixed height */
+  width: 200px;
+  /* Fixed width */
+  height: 100px;
+  /* Fixed height */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -63,7 +65,8 @@
   color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 250px; /* Reduced width */
+  width: 250px;
+  /* Reduced width */
   height: 120px;
   display: flex;
   flex-direction: column;
@@ -80,6 +83,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 400px; /* Fixed width */
-  height: 80px; /* Fixed height */
+  width: 400px;
+  /* Fixed width */
+  height: 80px;
+  /* Fixed height */
 }

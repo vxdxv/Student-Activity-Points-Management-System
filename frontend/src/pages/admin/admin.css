@@ -1,25 +1,29 @@
-.content{
-    position:absolute;
-    top:80px;
-    left:15%;
-    width:85vw;
+.content {
+    position: absolute;
+    top: 80px;
+    left: 15%;
+    width: 85vw;
 }
-.header{
-    font-size: 32px; 
+
+.header {
+    font-size: 32px;
     text-align: center;
     text-transform: uppercase;
     width: 100%;
     display: block;
-    
+
 }
-.header h1{
+
+.header h1 {
     text-align: center;
 }
-.student-dashboard{
+
+.student-dashboard {
     margin-bottom: 5%;
 
 }
-.search-add{
+
+.search-add {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,16 +31,19 @@
     margin-bottom: 2%;
 
 }
-table{
+
+table {
     margin-bottom: 5%;
 }
-.search{
-    display:flex;
-    gap:15px;
+
+.search {
+    display: flex;
+    gap: 15px;
     align-items: center;
 }
-.body{
-    height:65vh;
+
+.body {
+    height: 65vh;
     overflow-y: scroll;
     scrollbar-width: none;
     margin-top: 5%;
@@ -53,7 +60,8 @@ table{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.styled-table th, .styled-table td {
+.styled-table th,
+.styled-table td {
     padding: 12px;
     border-bottom: 1px solid #ddd;
 }
@@ -71,7 +79,8 @@ table{
     background-color: #ddd;
     cursor: pointer;
 }
-.Add{
+
+.Add {
     background-color: #5918c2;
     color: white;
     padding: 10px 20px;
@@ -125,7 +134,7 @@ table{
 }
 
 .close-btn {
-    background-color:red;
+    background-color: red;
     color: white;
     padding: 10px;
     border: none;
@@ -133,20 +142,24 @@ table{
     border-radius: 5px;
     margin-top: 5px;
 }
-.title{
+
+.title {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-right: 10px;
 }
-.close{
-    color:black;
+
+.close {
+    color: black;
     margin-bottom: 5px;
     cursor: pointer;
 }
-.bi.bi-pencil-fill{
+
+.bi.bi-pencil-fill {
     margin-right: 5px;
 }
+
 .input-group {
     display: flex;
     gap: 10px;
