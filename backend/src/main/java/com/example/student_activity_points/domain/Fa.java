@@ -16,8 +16,6 @@ public class Fa {
     @Column(name="emailID", nullable=false,unique=true)
     private String emailID; 
 
-    @Column(name="password", nullable=false)
-    private String password;
 
     @Column(name="DID", nullable=false,length=255)
     private int DID;
@@ -35,6 +33,4 @@ public class Fa {
     public int getDID() { return DID; }
     public void setDID(int did) { this.DID = did; }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
 }

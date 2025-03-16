@@ -2,6 +2,7 @@ package com.example.student_activity_points.domain;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -9,8 +10,12 @@ import java.util.Date;
 public class Student {
 
     @Id
-    @Column(name = "SID", nullable = false, length = 20)
+    @Column(name = "SID", nullable = false)
     private String sid;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<StudentActivity> studentActivities;
+
 
     @Column(name = "FAID", nullable = false)
     private int FAID;
@@ -30,9 +35,6 @@ public class Student {
     @Column(name = "institute_points", columnDefinition = "INT DEFAULT 0")
     private int institutePoints;
 
-    @Column(name = "password", nullable = false)
-    private String password;
-
     // Getters and setters
     public String getSid() {
         return sid;
@@ -41,6 +43,7 @@ public class Student {
     public void setSid(String sid) {
         this.sid = sid;
     }
+
 
     public int getFaid() {
         return FAID;
@@ -90,12 +93,5 @@ public class Student {
         this.institutePoints = institutePoints;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
 

@@ -5,7 +5,7 @@ const NavBar = () => {
   return (
     <div className='navbar'>
      <div className='navbar__left'>
-        {/* <h3>Name</h3> */}
+        <h3>Name</h3>
       </div>
       <div className='navbar__right'> 
             {/* <h3>Name</h3> */}

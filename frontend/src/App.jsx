@@ -21,7 +21,6 @@ import Tracking from "./pages/student/Tracking";
 import AnnouncementDetail from "./pages/student/AnnouncementDetail";
 import LoginPage from "./pages/login/Login";
 
-<<<<<<< HEAD
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
 
@@ -38,24 +37,6 @@ const ProtectedRoute = ({ children }) => {
     console.log("User in ProtectedRoute:", user);
     return children;
 };
-=======
-import Index from "./pages/login/Login"
-
-import StudentList from "./pages/fa/fadashboard/listofstudents";
-
-import TailwindTest from "./pages/admin/TailwindTest";
-
-import AnnouncementPage from "./pages/fa/fadashboard/AnnouncementPage";
-
-import Faannouncements from "./pages/fa/fadashboard/Faannouncements";
-
-import StudentDetails from "./pages/fa/fadashboard/StudentDetails";
-
-
-// import FacultyDashboard from "./pages/faculty/Dashboard";
-// import ManageProjects from "./pages/faculty/ManageProjects";
-import ApprovalsTable from "./pages/fa/fadashboard/approvals";
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
 
 function App() {
     return (
@@ -77,7 +58,6 @@ function App() {
                     <Route path="guidelines" element={<AdminGuidelines />} />
                 </Route>
 
-<<<<<<< HEAD
                 {/* Student Routes */}
                 <Route
                     path="/student/*"
@@ -106,37 +86,6 @@ function App() {
             </Routes>
         // </Router>
     );
-=======
-        {/* Student Routes */}
-        <Route path="/student/*" element={<StudentLayout />}>
-          <Route path="dashboard" element={<StudentDashboard />} />
-          <Route path="tracking" element={<Tracking />} />
-          <Route path="activity-history" element={<ActivityHistory />} />
-          <Route path="request-form" element={<RequestForm />} />
-          <Route path="activities" element={<Activities />} />
-          <Route path="guidelines" element={<Guidelines/>} />
-          <Route path="announcements" element={<Announcements/>} />
-          <Route path="announcements/:id" element={<AnnouncementDetail />} />
-        </Route>
-          <Route path="/list"  element={<StudentList/>}/>
-          {/* <Route path="/details"  element={<Student/>}/> */}
-        <Route path="/tailwind" element={<TailwindTest />} />
-        <Route path="/login"  element={<Index/>}/>
-        <Route path="/approvals" element={<ApprovalsTable />} />
-        <Route path="/announcement" element={<AnnouncementPage />} />
-        <Route path="/Faannouncements" element={<Faannouncements />} />
-        <Route path="/studentdetails" element={<StudentDetails />} />
-        
-        {/* Faculty Routes */}
-        {/*<Route path="/faculty/*" element={<FacultyLayout />}>
-          <Route path="dashboard" element={<FacultyDashboard />} />
-          <Route path="manage-projects" element={<ManageProjects />} />
-          <Route path="approve" element={<ApproveRequests />} />
-        </Route> */}
-      </Routes>
-    </Router>
-  );
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
 }
 
 export default App;

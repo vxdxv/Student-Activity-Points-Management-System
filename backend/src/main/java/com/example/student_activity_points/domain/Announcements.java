@@ -10,7 +10,7 @@ public class Announcements {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long aid;
-    private int FAID;
+    private Integer FAID;
     private Date date;
     private String time;
     private String title;
@@ -20,7 +20,7 @@ public class Announcements {
     public Long getAid() { return aid; }
     public void setAid(Long aid) { this.aid = aid; }
 
-    public int getFAID() { return FAID; }
+    public Integer getFAID() { return FAID; }
     public void setFAID(int FAID) { this.FAID = FAID; }
 
     public Date getDate() { return date; }
