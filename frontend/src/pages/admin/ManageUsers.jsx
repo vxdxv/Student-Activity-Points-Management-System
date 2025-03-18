@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './admin.css';
-import {handleAddStudent,handleAddFA,handleEditStud,handleEditFa,getDeptData} from '../../handlers/UserManagement';
+import {handleAddStudent,handleAddFA,handleEditStud,handleEditFa,getDeptData,handleDeleteStud,handleDeleteFa} from '../../handlers/UserManagement';
 
 
 
@@ -114,19 +114,6 @@ const filteredStudents = students.filter(student =>
 const filteredFaculties = faculties.filter(fa =>
   fa.name.toLowerCase().includes(searchFA.toLowerCase())
 );
-  
-  const handleEditSubmit = () => {
-    if (editData.type === 'student') {
-      const updatedStudents = [...students];
-      updatedStudents[editData.index] = { ...editData };
-      setStudents(updatedStudents);
-    } else {
-      const updatedFaculty = [...faculty];
-      updatedFaculty[editData.index] = { ...editData };
-      setFaculties(updatedFaculty);
-    }
-    setIsEditModalOpen(false);
-  };
 
   return (
     <div>
@@ -170,14 +157,15 @@ const filteredFaculties = faculties.filter(fa =>
                 ))}
                     <td>{student.emailID}</td>
                     {/* <td>{student.faid}</td> */}
-                    {faculties.filter(fa => fa.faid===student.faid).map(fa => (
+                    {!student.faid && <td>Not assigned</td>}
+                    {student.faid && faculties.filter(fa => fa.faid===student.faid).map(fa => (
                   <td>{fa.name}</td>
                 ))}
                     <td>{student.institutePoints}</td>
                     <td>{student.deptPoints}</td>
                     <td>
                       <i className="bi bi-pencil-fill" onClick={() => handleEdit('student', index)}></i>
-                      <i className="bi bi-trash-fill" onClick={() => handleDelete('student', index)}></i>
+                      <i className="bi bi-trash-fill" onClick={() => handleDeleteStud(fetchStudData,student.sid)}></i>
                     </td>
                   </tr>
                 ))}
@@ -218,7 +206,7 @@ const filteredFaculties = faculties.filter(fa =>
                     <td>{fa.emailID}</td>
                     <td>
                       <i className="bi bi-pencil-fill" onClick={() => handleEdit('fa', index)}></i>
-                      <i className="bi bi-trash-fill" onClick={() => handleDelete('fa', index)}></i>
+                      <i className="bi bi-trash-fill" onClick={() => handleDeleteFa(fetchFAData,index)}></i>
                     </td>
                   </tr>
                 ))}
