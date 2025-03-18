@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -100,7 +101,6 @@ public class AdminManageUsersController {
             if (existingStudentOpt .isPresent()) {
                 Student existingStudent = existingStudentOpt.get();
                 existingStudent .setName(updatedStudent.getName());
-                existingStudent .setSid(updatedStudent.getSid());
                 existingStudent.setDid(updatedStudent.getDid());
                 existingStudent.setEmailID(updatedStudent.getEmailID());
                 existingStudent.setFaid(updatedStudent.getFaid());
@@ -140,6 +140,37 @@ public ResponseEntity<?> updateFA(@PathVariable Long id, @RequestBody Fa updated
         return ResponseEntity.status(500).body("Error updating Fa record: " + e.getMessage());
     }
 }
+
+    @DeleteMapping("/student/{id}")
+    public ResponseEntity<?> deleteStudent(@PathVariable String id) {
+        try {
+
+            if (studentRepository.existsById(id)) {
+                studentRepository.deleteById(id);
+                return ResponseEntity.ok("Student record deleted successfully");
+            } else {
+                return ResponseEntity.status(404).body("Student record not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error deleting student record: " + e.getMessage());
+        }
+    }
+    @DeleteMapping("/fa/{id}")
+    public ResponseEntity<?> deleteActivity(@PathVariable Long id) {
+        try {
+
+            if (faRepository.existsById(id)) {
+                faRepository.deleteById(id);
+                return ResponseEntity.ok("Fa record deleted successfully");
+            } else {
+                return ResponseEntity.status(404).body("Fa record not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error deleting Fa record: " + e.getMessage());
+        }
+    }
 }
 
 
