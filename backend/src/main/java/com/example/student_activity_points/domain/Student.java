@@ -3,7 +3,6 @@ package com.example.student_activity_points.domain;
 import javax.persistence.*;
 import java.util.Date;
 
-
 @Entity
 @Table(name = "Student")
 public class Student {
@@ -98,4 +97,3 @@ public class Student {
         this.password = password;
     }
 }
-

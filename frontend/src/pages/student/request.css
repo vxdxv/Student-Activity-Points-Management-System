@@ -53,7 +53,9 @@ textarea[name="description"] {
 }
 
 .radio-group {
+  align-items: center;
   margin-top: 50px;
+  padding-left: 30vh;
   margin-left: -170px;
   display: flex;
   flex-direction: column;
@@ -167,4 +169,33 @@ input[type="file"] {
   font-size: 12px;
   display: block;
   margin-top: 5px;
+}
+
+.url-and-not-listed {
+  display: flex;
+  gap: 10px;
+  /* Space between the URL input and the button */
+  align-items: center;
+  margin-top: 10px;
+}
+
+.url-and-not-listed input {
+  flex: 1;
+  /* Allow the input to take up remaining space */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.not-listed-btn {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.not-listed-btn:hover {
+  background-color: #0056b3;
 }
