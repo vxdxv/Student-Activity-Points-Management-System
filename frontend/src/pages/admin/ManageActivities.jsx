@@ -197,12 +197,7 @@ const ActivityManagement = () => {
             <input type="date" value={editActivity.date} onChange={(e) => setEditActivity({...editActivity, date: e.target.value})} />
 
             <label>Department:</label>
-            <select value={editActivity.did} onChange={(e) => setEditActivity({...editActivity, did: e.target.value})}>
-              <option value="">Select Department</option>
-              {departments.map(dept => (
-                <option key={dept.did} value={dept.did}>{dept.name}</option>
-              ))}
-            </select>
+            <input type="text" value={newActivity.did} onChange={(e) => setNewActivity({...newActivity, did: e.target.value})} />
             <label>Mandatory:</label>
             <input type="text" value={editActivity.mandatory} onChange={(e) => setEditActivity({...editActivity, mandatory: e.target.value})} />
             <label>Description:</label>
@@ -229,28 +224,13 @@ const ActivityManagement = () => {
             <label>Date:</label>
             <input type="date" value={newActivity.date} onChange={(e) => setNewActivity({...newActivity, date: e.target.value})} />
             <label>Mandatory:</label>
-            <select value={newActivity.mandatory} onChange={(e) => setNewActivity({...newActivity, mandatory: e.target.value})}>
-              <option value="">Select value</option>
-              {/* {departments.map(dept => ( */}
-                <option key={1} value={1}>Yes</option>
-                <option key={0} value={0}>No</option>
-              {/* ))} */}
-            </select>
+            <input type="text" value={newActivity.mandatory} onChange={(e) => setNewActivity({...newActivity, mandatory: e.target.value})} />
             <label>Description:</label>
             <input type="text" value={newActivity.description} onChange={(e) => setNewActivity({...newActivity, description: e.target.value})} />
             <label>O/I:</label>
-            <select value={newActivity.outside_inside} onChange={(e) => setNewActivity({...newActivity, outside_inside: e.target.value})}>
-              <option value="">Select value</option>
-                <option key={1} value={"Inside"}>Inside</option>
-                <option key={0} value={"Outside"}>Outside</option>
-            </select>
+            <input type="text" value={newActivity.outside_inside} onChange={(e) => setNewActivity({...newActivity, outside_inside: e.target.value})} />
             <label>Department:</label>
-            <select value={newActivity.did} onChange={(e) => setNewActivity({...newActivity, did: e.target.value})}>
-              <option value="">Select Department</option>
-              {departments.map(dept => (
-                <option key={dept.did} value={dept.did}>{dept.name}</option>
-              ))}
-            </select>
+            <input type="text" value={newActivity.did} onChange={(e) => setNewActivity({...newActivity, did: e.target.value})} />
             <label>Points:</label>
             <input type="text" value={newActivity.points} onChange={(e) => setNewActivity({...newActivity, points: e.target.value})} />
             <button onClick={handleAddActivity}>Add</button>
@@ -260,6 +240,5 @@ const ActivityManagement = () => {
     </div>
   );
 };
-
 
 export default ActivityManagement;
