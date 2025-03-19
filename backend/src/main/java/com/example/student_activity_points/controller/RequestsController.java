@@ -3,6 +3,7 @@ package com.example.student_activity_points.controller;
 import com.example.student_activity_points.domain.Requests;
 import com.example.student_activity_points.repository.RequestsRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,7 +25,6 @@ public class RequestsController {
         return (List<Requests>) requestsRepository.findAll();
     }
 
-    // Get requests by student ID
     @GetMapping("/student/{sid}")
     public ResponseEntity<List<Requests>> getRequestsBySid(@PathVariable String sid) {
         List<Requests> requests = requestsRepository.findBySid(sid);
@@ -34,7 +34,6 @@ public class RequestsController {
         return ResponseEntity.ok(requests);
     }
 
-    // Get a request by ID
     @GetMapping("/{id}")
     public ResponseEntity<Requests> getRequestById(@PathVariable Long id) {
         Optional<Requests> request = requestsRepository.findById(id);
@@ -61,7 +60,6 @@ public class RequestsController {
             existingRequest.setDescription(updatedRequest.getDescription());
             existingRequest.setActivityDate(updatedRequest.getActivityDate());
             existingRequest.setType(updatedRequest.getType());
-
             Requests savedRequest = requestsRepository.save(existingRequest);
             return ResponseEntity.ok(savedRequest);
         }).orElseGet(() -> ResponseEntity.notFound().build());

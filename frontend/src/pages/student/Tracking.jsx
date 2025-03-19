@@ -9,13 +9,15 @@ const Tracking = () => {
   const [error, setError] = useState(null);
   const [selectedRequest, setSelectedRequest] = useState(null);
 
-  // Function to extract student ID from email
+  // Updated function to extract student ID from email in uppercase
   const getSid = (email) => {
     if (!email) return null;
-    return email.split("@")[0].split("_")[1];
+    const username = email.split("@")[0];
+    const parts = username.split("_");
+    return parts.length > 1 ? parts[1].toUpperCase() : username.toUpperCase();
   };
 
-  const sid = getSid(user?.email); // Extract student ID
+  const sid = getSid(user?.email); // Extract student ID in uppercase
 
   useEffect(() => {
     if (!sid) return;
