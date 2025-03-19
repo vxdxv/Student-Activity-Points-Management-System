@@ -36,8 +36,8 @@ const AuthProvider = ({ children }) => {
         });
 
         if (response.status === 200) {
-          localStorage.setItem('user', JSON.stringify(data));
-          setUser(data);
+          localStorage.setItem('user', JSON.stringify(response.data));
+          setUser(response.data);
           navigate('/student/dashboard');
         } else {
           console.error('Authentication failed: ', response.data);

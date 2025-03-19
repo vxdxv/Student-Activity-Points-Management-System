@@ -75,48 +75,5 @@ const handleEditFa = async (fetchData,setIsEditModalOpen,editFa) => {
   }
 };
 
-const getDeptData=async(setDepartments)=>{
-  try {
-    const response = await axios.get("/api/admin/get-departments");
-    if (response.status === 200) {
-      setDepartments(response.data);
-    } else {
-      console.log('Error loading departments!');
-    }
-  } catch (error) {
-    console.error('Error fetching departments', error);
-    
-  }
-};
 
-const handleDeleteStud = async (fetchData,id) => {
-  try {
-    console.log(id);
-    const response = await axios.delete(`/api/admin/manage-users/student/${id}`);
-    if (response.status === 200) {
-      fetchData(); // Refresh list
-    } else {
-      alert("Error deleting student record!");
-    }
-  } catch (error) {
-    console.error("Error deleting student record", error);
-    alert("Failed to delete student record!");
-  }
-};
-
-const handleDeleteFa = async (fetchData,id) => {
-  try {
-    console.log(id);
-    const response = await axios.delete(`/api/admin/manage-users/fa/${id}`);
-    if (response.status === 200) {
-      fetchData(); // Refresh list
-    } else {
-      alert("Error deleting fa record!");
-    }
-  } catch (error) {
-    console.error("Error deleting fa record", error);
-    alert("Failed to delete fa record!");
-  }
-};
-
-  export {handleAddStudent,handleAddFA,handleEditStud,handleEditFa,getDeptData,handleDeleteStud,handleDeleteFa};
+  export {handleAddStudent,handleAddFA,handleEditStud,handleEditFa};
