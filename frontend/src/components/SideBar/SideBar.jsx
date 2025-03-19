@@ -26,7 +26,7 @@ const SideBar = ({role}) => {
             {name:"Activity History",url:"/student/activity-history",image:<i class="bi bi-hourglass-bottom"></i>},
             {name:"Activities",url:"/student/activities",image:<i class="bi bi-hourglass-bottom"></i>},
             {name:"Request Form",url:"/student/request-form",image:<i class="bi bi-file-earmark-text"></i>},
-            {name:"Guidelines",url:"/student/guidelines",image:assets.guidelines},
+            {name:"Guidelines",url:"/student/help",image:assets.guidelines},
         ]},
         {view:"fa",links:[
             {name:"Dashboard",url:"/fa/dashboard"},

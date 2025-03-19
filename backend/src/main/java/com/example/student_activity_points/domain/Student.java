@@ -1,7 +1,8 @@
 package com.example.student_activity_points.domain;
+
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.*;
 
 
 @Entity
@@ -12,17 +13,18 @@ public class Student {
     @Column(name = "SID", nullable = false)
     private String sid;
 
-    @Column(name = "name", nullable = false)
-    private String name;
-
     @OneToMany(mappedBy = "student", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<StudentActivity> studentActivities;
+
 
     @Column(name = "FAID", nullable = false)
     private int FAID;
 
     @Column(name = "emailID", nullable = false, unique = true)
     private String emailID;
+
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Column(name = "DID", nullable = false)
     private int DID;
@@ -32,9 +34,8 @@ public class Student {
 
     @Column(name = "institute_points", columnDefinition = "INT DEFAULT 0")
     private int institutePoints;
-    @Column(name = "activity_points", columnDefinition = "INT DEFAULT 0") // Add this line
-    private int activityPoints; // Add this field
 
+    // Getters and setters
     public String getSid() {
         return sid;
     }
@@ -90,15 +91,6 @@ public class Student {
 
     public void setInstitutePoints(int institutePoints) {
         this.institutePoints = institutePoints;
-    }
-    
-    // Getter and Setter for activityPoints
-    public int getActivityPoints() {
-        return activityPoints;
-    }
-
-    public void setActivityPoints(int activityPoints) {
-        this.activityPoints = activityPoints;
     }
 
 }

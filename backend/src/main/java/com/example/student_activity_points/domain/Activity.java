@@ -42,8 +42,8 @@ public class Activity {
     @OneToMany(mappedBy = "activity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
      private List<StudentActivity> studentActivities;
 
-//     @OneToMany(mappedBy = "activity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
-// private List<Validation> validations;
+    @OneToMany(mappedBy = "activity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+private List<Validation> validations;
      
     // Getters and setters
     public Long getActID() { return actID; }
@@ -79,12 +79,12 @@ public class Activity {
     public List<StudentActivity> getStudentActivities() { return studentActivities; }
     public void setStudentActivities(List<StudentActivity> studentActivities) { this.studentActivities = studentActivities; }
 
-    // public List<Validation> getValidations() {
-    //     return validations;
-    // }
+    public List<Validation> getValidations() {
+        return validations;
+    }
     
-    // public void setValidations(List<Validation> validations) {
-    //     this.validations = validations;
-    //}
+    public void setValidations(List<Validation> validations) {
+        this.validations = validations;
+    }
     
 }

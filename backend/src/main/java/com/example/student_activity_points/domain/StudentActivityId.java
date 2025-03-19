@@ -4,9 +4,11 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class StudentActivityId implements Serializable {
+
     private String sid;
     private int actID;
 
+    // Default constructor
     public StudentActivityId() {}
 
     public StudentActivityId(String sid, int actID) {
@@ -21,7 +23,7 @@ public class StudentActivityId implements Serializable {
     public int getActID() { return actID; }
     public void setActID(int actID) { this.actID = actID; }
 
-    // Override equals and hashCode for proper comparison
+    // Override equals and hashCode
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
