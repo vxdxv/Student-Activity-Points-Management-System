@@ -2,9 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import './student.css';
 
-
-
-
 const Tracking = () => {
   const trackingRequests = [
     { id: "1", title: "Value Education quiz", status: "Pending" },

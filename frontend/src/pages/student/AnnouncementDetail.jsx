@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -6,7 +7,6 @@ const AnnouncementDetail = () => {
   return (
     <div>
       <div className="content">
-        <Link to="/student/announcements">/Announcements</Link>
         <div className='announcement-content'>
             <div className="announcement-title-time">
                 <h1>Announcement-1</h1>

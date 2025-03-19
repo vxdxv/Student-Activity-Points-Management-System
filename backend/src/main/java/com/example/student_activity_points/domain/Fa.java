@@ -1,6 +1,12 @@
 package com.example.student_activity_points.domain;
 
-import javax.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+
 import java.util.Date;
 @Entity
 @Table(name="Fa")
@@ -16,8 +22,6 @@ public class Fa {
     @Column(name="emailID", nullable=false,unique=true)
     private String emailID; 
 
-    @Column(name="password", nullable=false)
-    private String password;
 
     @Column(name="DID", nullable=false,length=255)
     private int DID;
@@ -35,6 +39,4 @@ public class Fa {
     public int getDID() { return DID; }
     public void setDID(int did) { this.DID = did; }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
 }

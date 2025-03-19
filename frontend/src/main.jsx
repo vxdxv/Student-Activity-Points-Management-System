@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -20,15 +19,3 @@ root.render(
   </Router>
 </React.StrictMode>
 );
-=======
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-// import './index.css'  // Make sure this import exists
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
->>>>>>> 55bdc32cb43da2ae0fce6cc81bbbb1341610a76b
