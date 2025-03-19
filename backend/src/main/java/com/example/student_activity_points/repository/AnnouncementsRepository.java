@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface AnnouncementsRepository extends JpaRepository<Announcements, Integer> {
     List<Announcements> findByFAID(Integer FAID);
+    Announcements findByAid(Long aid);
 }

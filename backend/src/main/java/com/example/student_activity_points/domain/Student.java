@@ -1,14 +1,7 @@
 package com.example.student_activity_points.domain;
 import java.util.Date;
 import java.util.List;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-
+import javax.persistence.*;
 
 
 @Entity

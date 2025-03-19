@@ -50,13 +50,13 @@ const Announcements = () => {
 
       <div className="announcements">
         {announcements.map((announcement) => (
-          <Link to={`/student/announcements/${announcement.id}`} key={announcement.id} className="announcement">
+          <Link to={`/student/announcements/${announcement.aid}`} key={announcement.aid} className="announcement">
 
             <div className="announcement-details">
               <h3>{announcement.title}</h3>
               <p>{announcement.body}</p>
             </div>
-            <span>{new Date(announcement.date).toLocaleDateString()} | {announcement.time}</span>
+            <span>{new Date(announcement.date).toLocaleDateString("en-GB")} | {announcement.time}</span>
           </Link>
         ))}
       </div>

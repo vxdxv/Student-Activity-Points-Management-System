@@ -1,10 +1,5 @@
 package com.example.student_activity_points.domain;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
