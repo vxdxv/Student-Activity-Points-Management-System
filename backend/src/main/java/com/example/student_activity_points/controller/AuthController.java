@@ -23,19 +23,18 @@ public class AuthController {
     private FARepository faRepository;
 
     @PostMapping("/login-student")
-public ResponseEntity<?> loginstudent(@RequestBody Map<String, String> request) {
-    String email = request.get("email");
-    System.out.println("Email: " + email);
+    public ResponseEntity<String> loginstudent(@RequestBody Map<String, String> request) {
+        String email = request.get("email");
+        System.out.println("Email: " + email);
+        // Fetch student by email
+        Optional<Student> student = studentRepository.findByEmailID(email);
 
-    Optional<Student> student = studentRepository.findByEmailID(email);
-    Student studentDetails = student.orElse(null);
-
-    if (studentDetails != null) {
-        return ResponseEntity.ok(studentDetails); // Send student details
-    } else {
-        return ResponseEntity.status(401).body("Invalid email");
+        if (student.isPresent() ) {
+            return ResponseEntity.ok("Login successful!");
+        } else {
+            return ResponseEntity.status(401).body("Invalid email");
+        }
     }
-}
 
     @PostMapping("/login-fa")
     public ResponseEntity<String> loginfa(@RequestBody Map<String, String> request) {

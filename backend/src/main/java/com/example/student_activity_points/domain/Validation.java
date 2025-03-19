@@ -1,6 +1,10 @@
 package com.example.student_activity_points.domain;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import java.util.Date;
 
 @Entity
@@ -17,8 +21,13 @@ public class Validation {
     @Column(name = "FAID", nullable = false)
     private int faid;
 
-    @Column(name = "actID", nullable = false)
-    private int actID;
+    // private int actID;
+
+    @ManyToOne
+    @JoinColumn(name = "actID", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Activity activity;
+
 
     @Column(name = "upload_date", nullable = false)
     private Date uploadDate;
@@ -39,12 +48,17 @@ public class Validation {
     public int getFaid() { return faid; }
     public void setFaid(int faid) { this.faid = faid; }
 
-    public int getActID() { return actID; }
-    public void setActID(int actID) { this.actID = actID; }
+    // public int getActID() { return actID; }
+    // public void setActID(int actID) { this.actID = actID; }
 
     public Date getUploadDate() { return uploadDate; }
     public void setUploadDate(Date uploadDate) { this.uploadDate = uploadDate; }
 
     public Validated getValidated() { return validated; }
     public void setValidated(Validated validated) { this.validated = validated; }
+
+     public Activity getActivity() { return activity; }
+    public void setActivity(Activity activity) { this.activity = activity; }
+
+    
 }
