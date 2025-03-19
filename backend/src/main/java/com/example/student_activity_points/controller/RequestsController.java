@@ -24,6 +24,16 @@ public class RequestsController {
         return (List<Requests>) requestsRepository.findAll();
     }
 
+    // Get requests by student ID
+    @GetMapping("/student/{sid}")
+    public ResponseEntity<List<Requests>> getRequestsBySid(@PathVariable String sid) {
+        List<Requests> requests = requestsRepository.findBySid(sid);
+        if (requests.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(requests);
+    }
+
     // Get a request by ID
     @GetMapping("/{id}")
     public ResponseEntity<Requests> getRequestById(@PathVariable Long id) {
