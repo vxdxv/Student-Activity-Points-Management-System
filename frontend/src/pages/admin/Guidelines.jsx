@@ -86,7 +86,7 @@ const Guidelines = () => {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(`/api/admin/guidelines/${id}`);
-      if (response.status === 200 ||  response.status === 204) {
+      if (response.status === 200 || response.status === 204) {
         fetchData(); // Refresh List
       } else {
         alert("Error deleting guideline!");
@@ -136,9 +136,9 @@ const Guidelines = () => {
           <div className="popup-overlay">
             <div className="popup-box">
               <h4>{editGuideline ? "Edit Guideline" : "Enter a New Guideline"}</h4>
-              <input 
-                type="text" 
-                value={inputText.body} 
+              <input
+                type="text"
+                value={inputText.body}
                 onChange={(e) => setInputText({ body: e.target.value })}
               />
               <div className="popup-buttons">
@@ -152,6 +152,7 @@ const Guidelines = () => {
         )}
       </div>
     </div>
+
   );
 };
 

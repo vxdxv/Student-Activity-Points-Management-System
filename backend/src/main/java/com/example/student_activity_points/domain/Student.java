@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
 @Entity
 @Table(name = "Student")
 public class Student {
@@ -94,4 +93,3 @@ public class Student {
     }
 
 }
-

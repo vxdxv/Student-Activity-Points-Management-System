@@ -10,12 +10,12 @@ const clientId = '106651985831-5o1vmt5gkugtflio95623p82s3de8o39.apps.googleuserc
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-  <Router> {/* Router should be at the top level */}
-    <GoogleOAuthProvider clientId={clientId}>
-      <AuthProvider> {/* AuthProvider should be inside Router */}
-        <App />
-      </AuthProvider>
-    </GoogleOAuthProvider>
-  </Router>
-</React.StrictMode>
+    <Router> {/* Router should be at the top level */}
+      <GoogleOAuthProvider clientId={clientId}>
+        <AuthProvider> {/* AuthProvider should be inside Router */}
+          <App />
+        </AuthProvider>
+      </GoogleOAuthProvider>
+    </Router>
+  </React.StrictMode>
 );

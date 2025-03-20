@@ -1,46 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-.container{
-    width:100%;
+
+.container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    align-items: center;
     background: linear-gradient(0deg, #925FE2 80.26%, rgba(146, 95, 226, 0) 143.39%, #E2D4F7 143.39%);
-    height:100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding-top: 20px;
     color: white;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size:small;
+    font-size: small;
+    z-index: 100;
 }
 
-.container img{
+.container img {
     width: 128px;
     cursor: pointer;
 }
-.shortcuts{
+
+.shortcuts {
     padding-top: 100px;
-    padding-left:50px;
-    width:100%;
+    padding-left: 50px;
+    width: 100%;
 }
-.shortcut{
+
+.shortcut {
     cursor: pointer;
-    padding-bottom:30px ;
+    padding-bottom: 30px;
 }
-.shortcuts a{
+
+.shortcuts a {
     color: white;
     text-decoration: none;
 }
-#logout{
+
+#logout {
     display: flex;
     align-items: center;
-    gap:10px;
+    gap: 10px;
     padding-top: 120px;
     cursor: pointer;
     opacity: 0.75;
 }
-.shortcut{
+
+.shortcut {
     display: flex;
     align-items: center;
 
@@ -49,13 +59,16 @@
     opacity: 0.75;
     gap: 10px;
 }
-button{
+
+button {
     background-color: #925FE2;
     color: white;
     border: none;
     opacity: 0.75;
 }
-.shortcut:hover, button:hover{
+
+.shortcut:hover,
+button:hover {
     opacity: 1;
     font-weight: bold;
 }

@@ -1,6 +1,6 @@
 .dashboard-container {
     display: flex;
-    margin-left:15%;
+    margin-left: 15%;
     margin-top: 5%;
 }
 
@@ -20,13 +20,13 @@
     font-size: 1.8vw;
     font-weight: bold;
     text-transform: uppercase;
-    margin-left:35%;
+    margin-left: 35%;
 }
 
 .profile-section {
     display: flex;
     align-items: center;
-    margin-right:0.25%;
+    margin-right: 0.25%;
 }
 
 .profile-image {
@@ -57,7 +57,8 @@
     width: 30%;
 }
 
-.activity-section, .announcement-section {
+.activity-section,
+.announcement-section {
     margin-top: 3%;
 }
 
@@ -75,7 +76,8 @@
     margin-top: 1%;
 }
 
-.activity-table th, .activity-table td {
+.activity-table th,
+.activity-table td {
     border: 1px solid #ddd;
     padding: 1%;
     text-align: center;

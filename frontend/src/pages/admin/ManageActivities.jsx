@@ -20,7 +20,7 @@ const ActivityManagement = () => {
     points: '',
     no_of_people: ''
   });
-  
+
   // Fetch activities from backend
   useEffect(() => {
     fetchData();
@@ -41,7 +41,7 @@ const ActivityManagement = () => {
     }
   };
 
-  const getDeptData=async()=>{
+  const getDeptData = async () => {
     try {
       const response = await axios.get("/api/admin/get-departments");
       if (response.status === 200) {
@@ -51,7 +51,7 @@ const ActivityManagement = () => {
       }
     } catch (error) {
       console.error('Error fetching departments', error);
-      
+
     }
   };
 
@@ -159,16 +159,16 @@ const ActivityManagement = () => {
               <tr key={activity.actID}>
                 <td>{activity.name}</td>
                 <td>{activity.type}</td>
-                {activity.mandatory===1?<td>Yes</td>:<td>No</td>}
+                {activity.mandatory === 1 ? <td>Yes</td> : <td>No</td>}
                 {/* <td>{activity.did}</td> */}
-                {departments.filter(dept => dept.did===activity.did).map(dept => (
+                {departments.filter(dept => dept.did === activity.did).map(dept => (
                   <td>{dept.name}</td>
                 ))}
                 {activity.description.length > 20 ? <td>{activity.description.substring(0, 20)}...</td> : <td>{activity.description}</td>}
                 <td>{activity.outside_inside}</td>
                 <td>{new Date(activity.date).toLocaleDateString('en-GB')}</td>
                 <td>{activity.points}</td>
-                {activity.no_of_people===null?<td>0</td>:<td>{activity.no_of_people}</td>}
+                {activity.no_of_people === null ? <td>0</td> : <td>{activity.no_of_people}</td>}
                 <td>
                   <i className="bi bi-pencil-fill" onClick={() => handleEdit(activity)}></i>
                   <i className="bi bi-trash-fill" onClick={() => handleDelete(activity.actID)}></i>
@@ -185,28 +185,28 @@ const ActivityManagement = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>Edit Activity</h2>
             <label>Name:</label>
-            <input type="text" value={editActivity.name} onChange={(e) => setEditActivity({...editActivity, name: e.target.value})} />
+            <input type="text" value={editActivity.name} onChange={(e) => setEditActivity({ ...editActivity, name: e.target.value })} />
             <label>Type:</label>
-<select value={newActivity.type} onChange={(e) => setNewActivity({...newActivity, type: e.target.value})}>
-  <option value="">Select Type</option>
-  <option value="Institute">Institute</option>
-  <option value="Department">Department</option>
-  <option value="Other">Other</option>
-</select>
+            <select value={newActivity.type} onChange={(e) => setNewActivity({ ...newActivity, type: e.target.value })}>
+              <option value="">Select Type</option>
+              <option value="Institute">Institute</option>
+              <option value="Department">Department</option>
+              <option value="Other">Other</option>
+            </select>
             <label>Date:</label>
-            <input type="date" value={editActivity.date} onChange={(e) => setEditActivity({...editActivity, date: e.target.value})} />
+            <input type="date" value={editActivity.date} onChange={(e) => setEditActivity({ ...editActivity, date: e.target.value })} />
 
             <label>Department:</label>
-            <select value={editActivity.did} onChange={(e) => setEditActivity({...editActivity, did: e.target.value})}>
+            <select value={editActivity.did} onChange={(e) => setEditActivity({ ...editActivity, did: e.target.value })}>
               <option value="">Select Department</option>
               {departments.map(dept => (
                 <option key={dept.did} value={dept.did}>{dept.name}</option>
               ))}
             </select>
             <label>Mandatory:</label>
-            <input type="text" value={editActivity.mandatory} onChange={(e) => setEditActivity({...editActivity, mandatory: e.target.value})} />
+            <input type="text" value={editActivity.mandatory} onChange={(e) => setEditActivity({ ...editActivity, mandatory: e.target.value })} />
             <label>Description:</label>
-            <input type="text" value={editActivity.description} onChange={(e) => setEditActivity({...editActivity, description: e.target.value})} />
+            <input type="text" value={editActivity.description} onChange={(e) => setEditActivity({ ...editActivity, description: e.target.value })} />
             <button onClick={handleUpdate}>Submit</button>
           </div>
         </div>
@@ -218,41 +218,41 @@ const ActivityManagement = () => {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>Add New Activity</h2>
             <label>Name:</label>
-            <input type="text" value={newActivity.name} onChange={(e) => setNewActivity({...newActivity, name: e.target.value})} />
+            <input type="text" value={newActivity.name} onChange={(e) => setNewActivity({ ...newActivity, name: e.target.value })} />
             <label>Type:</label>
-<select value={newActivity.type} onChange={(e) => setNewActivity({...newActivity, type: e.target.value})}>
-  <option value="">Select Type</option>
-  <option value="Institute">Institute</option>
-  <option value="Department">Department</option>
-  <option value="Other">Other</option>
-</select>
+            <select value={newActivity.type} onChange={(e) => setNewActivity({ ...newActivity, type: e.target.value })}>
+              <option value="">Select Type</option>
+              <option value="Institute">Institute</option>
+              <option value="Department">Department</option>
+              <option value="Other">Other</option>
+            </select>
             <label>Date:</label>
-            <input type="date" value={newActivity.date} onChange={(e) => setNewActivity({...newActivity, date: e.target.value})} />
+            <input type="date" value={newActivity.date} onChange={(e) => setNewActivity({ ...newActivity, date: e.target.value })} />
             <label>Mandatory:</label>
-            <select value={newActivity.mandatory} onChange={(e) => setNewActivity({...newActivity, mandatory: e.target.value})}>
+            <select value={newActivity.mandatory} onChange={(e) => setNewActivity({ ...newActivity, mandatory: e.target.value })}>
               <option value="">Select value</option>
               {/* {departments.map(dept => ( */}
-                <option key={1} value={1}>Yes</option>
-                <option key={0} value={0}>No</option>
+              <option key={1} value={1}>Yes</option>
+              <option key={0} value={0}>No</option>
               {/* ))} */}
             </select>
             <label>Description:</label>
-            <input type="text" value={newActivity.description} onChange={(e) => setNewActivity({...newActivity, description: e.target.value})} />
+            <input type="text" value={newActivity.description} onChange={(e) => setNewActivity({ ...newActivity, description: e.target.value })} />
             <label>O/I:</label>
-            <select value={newActivity.outside_inside} onChange={(e) => setNewActivity({...newActivity, outside_inside: e.target.value})}>
+            <select value={newActivity.outside_inside} onChange={(e) => setNewActivity({ ...newActivity, outside_inside: e.target.value })}>
               <option value="">Select value</option>
-                <option key={1} value={"Inside"}>Inside</option>
-                <option key={0} value={"Outside"}>Outside</option>
+              <option key={1} value={"Inside"}>Inside</option>
+              <option key={0} value={"Outside"}>Outside</option>
             </select>
             <label>Department:</label>
-            <select value={newActivity.did} onChange={(e) => setNewActivity({...newActivity, did: e.target.value})}>
+            <select value={newActivity.did} onChange={(e) => setNewActivity({ ...newActivity, did: e.target.value })}>
               <option value="">Select Department</option>
               {departments.map(dept => (
                 <option key={dept.did} value={dept.did}>{dept.name}</option>
               ))}
             </select>
             <label>Points:</label>
-            <input type="text" value={newActivity.points} onChange={(e) => setNewActivity({...newActivity, points: e.target.value})} />
+            <input type="text" value={newActivity.points} onChange={(e) => setNewActivity({ ...newActivity, points: e.target.value })} />
             <button onClick={handleAddActivity}>Add</button>
           </div>
         </div>
