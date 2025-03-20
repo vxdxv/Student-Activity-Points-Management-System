@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-import React, { useState,useContext} from 'react';
-=======
 import React, { useState, useContext } from 'react';
->>>>>>> Tharunchanges
 import { ChevronRight, UserCircle2, Users, ArrowRight } from 'lucide-react';
 import twoPersonImg from '../../assets/twopersons.png';
 import { AuthContext } from '../../context/AuthContext';
 const LoginPage = () => {
 
-<<<<<<< HEAD
-    const { loginstudent,loginfa } = useContext(AuthContext);
-=======
   const { loginstudent, loginfa } = useContext(AuthContext);
->>>>>>> Tharunchanges
 
   return (
     <div className="login-container">
@@ -224,11 +216,7 @@ const LoginPage = () => {
             <div style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               <button
                 className="login-option"
-<<<<<<< HEAD
-                onClick={() =>loginstudent()}
-=======
                 onClick={() => loginstudent()}
->>>>>>> Tharunchanges
               >
                 <div className="option-text">
                   <h3>Student</h3>
@@ -240,11 +228,7 @@ const LoginPage = () => {
               </button>
             </div>
             <div style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-<<<<<<< HEAD
-              <button className="login-option"  onClick={() =>loginfa()}>
-=======
               <button className="login-option" onClick={() => loginfa()}>
->>>>>>> Tharunchanges
                 <div className="option-text">
                   <h3>Staff</h3>
                   <p>Exclusive to staff members only.</p>
