@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface StudentRepository extends CrudRepository<Student, String> {
-    
+
     // Fetch student by email
     Optional<Student> findByEmailID(String emailID);
 

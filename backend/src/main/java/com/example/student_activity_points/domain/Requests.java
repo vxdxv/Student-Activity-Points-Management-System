@@ -1,9 +1,11 @@
 package com.example.student_activity_points.domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Requests")
@@ -27,7 +29,7 @@ public class Requests {
     @Column(name = "link")
     private String link;
 
-    @Column(name = "decison_date")
+    @Column(name = "decison_date") // note: column name "decison_date" as per your existing schema
     private Date decisionDate;
 
     @Column(name = "activity_name")
@@ -43,37 +45,92 @@ public class Requests {
     @Enumerated(EnumType.STRING)
     private Type type;
 
-    public enum Status { Pending, Approved, Rejected }
-    public enum Type { Institute, Department, Other }
+    public enum Status {
+        Pending, Approved, Rejected
+    }
+
+    public enum Type {
+        Institute, Department, Other
+    }
 
     // Getters and Setters
-    public Long getRid() { return rid; }
-    public void setRid( Long rid) { this.rid = rid; }
+    public Long getRid() {
+        return rid;
+    }
 
-    public String getSid() { return sid; }
-    public void setSid(String sid) { this.sid = sid; }
+    public void setRid(Long rid) {
+        this.rid = rid;
+    }
 
-    public Date getDate() { return date; }
-    public void setDate(Date date) { this.date = date; }
+    public String getSid() {
+        return sid;
+    }
 
-    public Status getStatus() { return status; }
-    public void setStatus(Status status) { this.status = status; }
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
 
-    public String getLink() { return link; }
-    public void setLink(String link) { this.link = link; }
+    public Date getDate() {
+        return date;
+    }
 
-    public Date getDecisionDate() { return decisionDate; }
-    public void setDecisionDate(Date decisionDate) { this.decisionDate = decisionDate; }
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-    public String getActivityName() { return activityName; }
-    public void setActivityName(String activityName) { this.activityName = activityName; }
+    public Status getStatus() {
+        return status;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
-    public Date getActivityDate() { return activityDate; }
-    public void setActivityDate(Date activityDate) { this.activityDate = activityDate; }
+    public String getLink() {
+        return link;
+    }
 
-    public Type getType() { return type; }
-    public void setType(Type type) { this.type = type; }
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public Date getDecisionDate() {
+        return decisionDate;
+    }
+
+    public void setDecisionDate(Date decisionDate) {
+        this.decisionDate = decisionDate;
+    }
+
+    public String getActivityName() {
+        return activityName;
+    }
+
+    public void setActivityName(String activityName) {
+        this.activityName = activityName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getActivityDate() {
+        return activityDate;
+    }
+
+    public void setActivityDate(Date activityDate) {
+        this.activityDate = activityDate;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
 }

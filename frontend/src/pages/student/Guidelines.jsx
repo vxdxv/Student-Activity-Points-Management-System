@@ -27,7 +27,7 @@ const Guidelines = () => {
           <div className="card shadow-sm">
             <div className="card-body">
               <h5 className="card-title">Important Guidelines for Students</h5>
-              
+
               <div className="guidelines-list">
                 {guidelines.length > 0 ? (
                   guidelines.map((guideline, index) => (

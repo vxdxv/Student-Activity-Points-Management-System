@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class StudentActivityId implements Serializable {
+
     private String sid;
     private int actID;
 
-    public StudentActivityId() {}
+    // Default constructor
+    public StudentActivityId() {
+    }
 
     public StudentActivityId(String sid, int actID) {
         this.sid = sid;
@@ -15,17 +18,29 @@ public class StudentActivityId implements Serializable {
     }
 
     // Getters and Setters
-    public String getSid() { return sid; }
-    public void setSid(String sid) { this.sid = sid; }
+    public String getSid() {
+        return sid;
+    }
 
-    public int getActID() { return actID; }
-    public void setActID(int actID) { this.actID = actID; }
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
 
-    // Override equals and hashCode for proper comparison
+    public int getActID() {
+        return actID;
+    }
+
+    public void setActID(int actID) {
+        this.actID = actID;
+    }
+
+    // Override equals and hashCode
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         StudentActivityId that = (StudentActivityId) o;
         return actID == that.actID && Objects.equals(sid, that.sid);
     }

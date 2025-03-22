@@ -23,7 +23,7 @@ import com.example.student_activity_points.repository.StudentRepository;
 @RestController
 @RequestMapping("/api/admin/manage-users")
 public class AdminManageUsersController {
-    
+
     @Autowired
     private StudentRepository studentRepository;
 
@@ -31,7 +31,7 @@ public class AdminManageUsersController {
     private FARepository faRepository;
 
     @GetMapping("/student")
-     public ResponseEntity<?> getStudents() {
+    public ResponseEntity<?> getStudents() {
         try {
             List<Student> students = (List<Student>) studentRepository.findAll();
             return ResponseEntity.ok(students);
@@ -42,7 +42,7 @@ public class AdminManageUsersController {
     }
 
     @GetMapping("/fa")
-     public ResponseEntity<?> getFA() {
+    public ResponseEntity<?> getFA() {
         try {
             List<Fa> fas = (List<Fa>) faRepository.findAll();
             return ResponseEntity.ok(fas);
@@ -52,7 +52,7 @@ public class AdminManageUsersController {
         }
     }
 
-    @PostMapping ("/student")
+    @PostMapping("/student")
     public ResponseEntity<?> addStudent(@RequestBody Student student) {
         try {
 
@@ -60,9 +60,10 @@ public class AdminManageUsersController {
             if (student.getSid() == null || student.getSid().trim().isEmpty()) {
                 return ResponseEntity.status(400).body("Error: sid (roll number) must be provided.");
             }
-    
+
             if (studentRepository.existsById(student.getSid())) {
-                return ResponseEntity.status(400).body("Error: Student with sid " + student.getSid() + " already exists.");
+                return ResponseEntity.status(400)
+                        .body("Error: Student with sid " + student.getSid() + " already exists.");
             }
             System.out.println("FAID: " + student.getFaid());
             System.out.println("SID: " + student.getSid());
@@ -71,9 +72,6 @@ public class AdminManageUsersController {
             System.out.println("Inst points: " + student.getInstitutePoints());
             System.out.println("EmailID: " + student.getEmailID());
 
-
-
-            
             Student savedStudent = studentRepository.save(student);
             return ResponseEntity.ok(savedStudent);
         } catch (Exception e) {
@@ -82,7 +80,7 @@ public class AdminManageUsersController {
         }
     }
 
-    @PostMapping ("/fa")
+    @PostMapping("/fa")
     public ResponseEntity<?> addFA(@RequestBody Fa fa) {
         try {
             Fa savedFa = faRepository.save(fa);
@@ -98,9 +96,9 @@ public class AdminManageUsersController {
         try {
             System.out.println(id);
             Optional<Student> existingStudentOpt = studentRepository.findById(id);
-            if (existingStudentOpt .isPresent()) {
+            if (existingStudentOpt.isPresent()) {
                 Student existingStudent = existingStudentOpt.get();
-                existingStudent .setName(updatedStudent.getName());
+                existingStudent.setName(updatedStudent.getName());
                 existingStudent.setDid(updatedStudent.getDid());
                 existingStudent.setEmailID(updatedStudent.getEmailID());
                 existingStudent.setFaid(updatedStudent.getFaid());
@@ -116,30 +114,29 @@ public class AdminManageUsersController {
             e.printStackTrace();
             return ResponseEntity.status(500).body("Error updating Student record: " + e.getMessage());
         }
-    
-}
 
-@PutMapping("/fa/{id}")
-public ResponseEntity<?> updateFA(@PathVariable Long id, @RequestBody Fa updatedFa) {
-    try {
-        Optional<Fa> existingFaOpt = faRepository.findById(id);
-        if (existingFaOpt.isPresent()) {
-            Fa existingFa = existingFaOpt.get();
-            existingFa.setName(updatedFa.getName());
-            existingFa.setEmailID(updatedFa.getEmailID());
-            existingFa.setDID(updatedFa.getDID());
-
-
-            Fa savedFa = faRepository.save(existingFa);
-            return ResponseEntity.ok(savedFa);
-        } else {
-            return ResponseEntity.status(404).body("Fa record not found");
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-        return ResponseEntity.status(500).body("Error updating Fa record: " + e.getMessage());
     }
-}
+
+    @PutMapping("/fa/{id}")
+    public ResponseEntity<?> updateFA(@PathVariable Long id, @RequestBody Fa updatedFa) {
+        try {
+            Optional<Fa> existingFaOpt = faRepository.findById(id);
+            if (existingFaOpt.isPresent()) {
+                Fa existingFa = existingFaOpt.get();
+                existingFa.setName(updatedFa.getName());
+                existingFa.setEmailID(updatedFa.getEmailID());
+                existingFa.setDID(updatedFa.getDID());
+
+                Fa savedFa = faRepository.save(existingFa);
+                return ResponseEntity.ok(savedFa);
+            } else {
+                return ResponseEntity.status(404).body("Fa record not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Error updating Fa record: " + e.getMessage());
+        }
+    }
 
     @DeleteMapping("/student/{id}")
     public ResponseEntity<?> deleteStudent(@PathVariable String id) {
@@ -156,6 +153,7 @@ public ResponseEntity<?> updateFA(@PathVariable Long id, @RequestBody Fa updated
             return ResponseEntity.status(500).body("Error deleting student record: " + e.getMessage());
         }
     }
+
     @DeleteMapping("/fa/{id}")
     public ResponseEntity<?> deleteActivity(@PathVariable Long id) {
         try {

@@ -1,11 +1,13 @@
 .dashboard-container {
-    margin-top:5%;
+    margin-top: 5%;
     margin-left: 12%;
     padding: 20px;
     font-family: Arial, sans-serif;
-    display:flex;
-    flex-direction: column; /* Stack elements vertically */
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
 }
+
 .main-content {
     width: 90%;
     /* margin-left:50%; */
@@ -72,7 +74,8 @@
 .progress-box:hover {
     transform: scale(1.15);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  }
+}
+
 .progress-box h2 {
     font-size: 28px;
     color: #6f42c1;
@@ -117,6 +120,7 @@
     padding: 2%;
     margin-top: 2%;
 }
+
 .activity-header {
     display: flex;
     justify-content: space-between;

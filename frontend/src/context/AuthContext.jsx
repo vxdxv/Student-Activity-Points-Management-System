@@ -34,10 +34,11 @@ const AuthProvider = ({ children }) => {
         const response = await axios.post('/api/auth/login-student', {
           email: data.email,
         });
+        localStorage.setItem('token', tokenResponse.access_token);
 
         if (response.status === 200) {
-          localStorage.setItem('user', JSON.stringify(response.data));
-          setUser(response.data);
+          localStorage.setItem('user', JSON.stringify(data));
+          setUser(data);
           navigate('/student/dashboard');
         } else {
           console.error('Authentication failed: ', response.data);
@@ -65,7 +66,7 @@ const AuthProvider = ({ children }) => {
         );
 
         console.log('Google User Data:', data);
-
+        localStorage.setItem('token', tokenResponse.access_token);
         const response = await axios.post('/api/auth/login-fa', {
           email: data.email,
         });
@@ -93,7 +94,7 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, loginstudent,loginfa, logout, loading }}>
+    <AuthContext.Provider value={{ user, loginstudent, loginfa, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );

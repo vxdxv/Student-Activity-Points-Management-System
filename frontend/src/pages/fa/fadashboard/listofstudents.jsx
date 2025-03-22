@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Search, User } from "lucide-react";
+import "./listofstudents .css";
 
 const students = [
   { name: "Rock", rollNo: "B22xxxxxx", points: 25 },
@@ -19,15 +20,14 @@ const students = [
 export default function StudentList() {
   const [search, setSearch] = useState("");
 
-  
   const filteredStudents = students.filter((student) =>
     student.name.toLowerCase().includes(search.toLowerCase()) ||
     student.rollNo.toLowerCase().includes(search.toLowerCase()) ||
     student.points.toString().includes(search)
   );
-  
-    
-  
+
+
+
 
   return (
     <div style={{ padding: "1.5rem" }}>

@@ -6,4 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class StudentActivityPointsApplicationTests {
 
+	@Test
+	void contextLoads() {
+	}
+
 }

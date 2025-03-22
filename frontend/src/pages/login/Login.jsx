@@ -1,4 +1,4 @@
-import React, { useState,useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { ChevronRight, UserCircle2, Users, ShieldUser } from 'lucide-react';
 import twoPersonImg from '../../assets/twopersons.png';
 import { AuthContext } from '../../context/AuthContext';
@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 import "./login.css";
 const LoginPage = () => {
 
-    const { loginstudent,loginfa } = useContext(AuthContext);
+  const { loginstudent, loginfa } = useContext(AuthContext);
 
   return (
     <div className="login-container">
       <div className="left-panel">
         <div className="max-width-md">
-          <h1 style={{ animationDelay: '0.1s',transform: 'translateY(-25%)' }}>Hello!</h1>
+          <h1 style={{ animationDelay: '0.1s', transform: 'translateY(-25%)' }}>Hello!</h1>
           <p className="subheading" style={{ animationDelay: '0.2s', transform: 'translateY(-15%)' }}>
             Choose your login option
           </p>
@@ -20,7 +20,7 @@ const LoginPage = () => {
             <div style={{ animationDelay: '0.3s', animationFillMode: 'both' }}>
               <button
                 className="login-option"
-                onClick={() =>loginstudent()}
+                onClick={() => loginstudent()}
               >
                 <div className="option-text">
                   <h3>Student</h3>
@@ -28,12 +28,12 @@ const LoginPage = () => {
                 </div>
                 <div className="option-icon">
                   <UserCircle2 size={24} />
-                  <ChevronRight size={20} style={{ transform: 'translateX(0)', transition: 'transform 0.2s' }}/>
+                  <ChevronRight size={20} style={{ transform: 'translateX(0)', transition: 'transform 0.2s' }} />
                 </div>
               </button>
             </div>
             <div style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-              <button className="login-option"  onClick={() =>loginfa()}>
+              <button className="login-option" onClick={() => loginfa()}>
                 <div className="option-text">
                   <h3>Faculty Advisor</h3>
                   <p>Exclusive to faculty members only.</p>
@@ -48,7 +48,7 @@ const LoginPage = () => {
               </button>
             </div>
             <div style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
-              <Link to="/admin" className="login-optionn"> 
+              <Link to="/admin" className="login-optionn">
                 <div className="option-text">
                   <h3>Admin</h3>
                   <p>Exclusive to Admins only.</p>

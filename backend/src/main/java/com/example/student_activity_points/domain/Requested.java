@@ -1,7 +1,6 @@
 package com.example.student_activity_points.domain;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,9 +16,19 @@ public class Requested {
     private int FAID;
 
     // Getters and Setters
-    public Long getRid() { return rid; }
-    public void setRid( Long rid) { this.rid = rid; }
+    public Long getRid() {
+        return rid;
+    }
 
-    public int getFaid() { return FAID; }
-    public void setFaid(int faid) { this.FAID = faid; }
+    public void setRid(Long rid) {
+        this.rid = rid;
+    }
+
+    public int getFaid() {
+        return FAID;
+    }
+
+    public void setFaid(int faid) {
+        this.FAID = faid;
+    }
 }
