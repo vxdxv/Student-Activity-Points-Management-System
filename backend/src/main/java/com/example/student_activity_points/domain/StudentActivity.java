@@ -1,6 +1,6 @@
 package com.example.student_activity_points.domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import com.fasterxml.jackson.annotation.JsonFormat;

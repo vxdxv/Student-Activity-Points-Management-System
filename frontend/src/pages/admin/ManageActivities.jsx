@@ -17,6 +17,7 @@ const ActivityManagement = () => {
     description: '',
     outside_inside: '',
     date: '',
+    end_date: '',
     points: '',
     no_of_people: ''
   });
@@ -27,11 +28,51 @@ const ActivityManagement = () => {
     getDeptData();
   }, []);
 
+
+  const handleUploadAttendance = (actID) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = ".csv"; // Change as needed
+    input.onchange = async (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
+        try {
+          const response=await axios.post(`/api/admin/upload-attendance/${actID}`, formData);
+          if(response.status===200){
+            alert("Attendance uploaded successfully!");
+          }
+          else alert("Failed to upload attendance!");
+        } catch (error) {
+          console.error("Error uploading attendance", error);
+          alert("Failed to upload attendance.");
+        }
+      }
+    };
+    input.click();
+  };
+  
+
   const fetchData = async () => {
     try {
       const response = await axios.get("/api/admin/manage-activities");
       if (response.status === 200) {
-        setActivities(response.data);
+        const today = new Date();
+        const updatedActivities = response.data.map(activity => {
+          const startDate = new Date(activity.start_date); // Make sure your backend sends a start_date field
+          const endDate = new Date(activity.end_date); 
+  
+          let status = "Upcoming";
+          if (today >= startDate && today <= endDate) {
+            status = "Ongoing";
+          } else if (today > endDate) {
+            status = "Completed";
+          }
+          return { ...activity, status };
+        });
+  
+        setActivities(updatedActivities);
       } else {
         alert('Error loading activities!');
       }
@@ -40,6 +81,7 @@ const ActivityManagement = () => {
       alert('Failed to fetch activities!');
     }
   };
+  
 
   const getDeptData=async()=>{
     try {
@@ -70,6 +112,7 @@ const ActivityManagement = () => {
           description: '',
           outside_inside: '',
           date: '',
+          end_date: '',
           points: '',
           no_of_people: ''
         });
@@ -124,11 +167,9 @@ const ActivityManagement = () => {
     <div className="content">
       <div className="header">
         <h1>Activity Management</h1>
-      </div>
-      <div className="body">
         <div className="search-add">
           <div className="search">
-            <label>Search by name:</label>
+            <label style={{fontSize:"16px"}}>Search by name:</label>
             <input
               type="text"
               placeholder="Enter activity name"
@@ -139,6 +180,9 @@ const ActivityManagement = () => {
           <button className="Add" onClick={() => setAddModalOpen(true)}>Add Activity</button>
         </div>
 
+      </div>
+      <div className="body">
+       
         <table className="styled-table">
           <thead>
             <tr>
@@ -148,34 +192,47 @@ const ActivityManagement = () => {
               <th>Dept</th>
               <th>Description</th>
               <th>O/I</th>
-              <th>Date</th>
+              <th>Start date</th>
+              <th>End date</th>
               <th>Points</th>
               <th>No. of Participants</th>
+              <th>Status</th>
+              <th>Attendance list</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {activities.filter(activity => activity.name.toLowerCase().includes(searchQuery.toLowerCase())).map(activity => (
-              <tr key={activity.actID}>
-                <td>{activity.name}</td>
-                <td>{activity.type}</td>
-                {activity.mandatory===1?<td>Yes</td>:<td>No</td>}
-                {/* <td>{activity.did}</td> */}
-                {departments.filter(dept => dept.did===activity.did).map(dept => (
-                  <td>{dept.name}</td>
-                ))}
-                {activity.description.length > 20 ? <td>{activity.description.substring(0, 20)}...</td> : <td>{activity.description}</td>}
-                <td>{activity.outside_inside}</td>
-                <td>{new Date(activity.date).toLocaleDateString('en-GB')}</td>
-                <td>{activity.points}</td>
-                {activity.no_of_people===null?<td>0</td>:<td>{activity.no_of_people}</td>}
-                <td>
-                  <i className="bi bi-pencil-fill" onClick={() => handleEdit(activity)}></i>
-                  <i className="bi bi-trash-fill" onClick={() => handleDelete(activity.actID)}></i>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+  {activities
+    .filter(activity => activity.name.toLowerCase().includes(searchQuery.toLowerCase()))
+    .map(activity => (
+      <tr key={activity.actID}>
+        <td>{activity.name}</td>
+        <td>{activity.type}</td>
+        <td>{activity.mandatory === 1 ? "Yes" : "No"}</td>
+        <td>{departments.find(dept => dept.did === activity.did)?.name || "N/A"}</td>
+        <td>{activity.description.length > 20 ? `${activity.description.substring(0, 20)}...` : activity.description}</td>
+        <td>{activity.outside_inside}</td>
+        <td>{new Date(activity.date).toLocaleDateString('en-GB')}</td>
+        <td>{new Date(activity.end_date).toLocaleDateString('en-GB')}</td>
+        <td>{activity.points}</td>
+        <td>{activity.no_of_people || 0}</td>
+        <td>{activity.status }</td>
+        <td>
+  {activity.status === "Completed" ? (
+    <button style={{padding:"1px",borderRadius:"2px",cursor:"pointer"}} onClick={() => handleUploadAttendance(activity.actID)}>
+      Upload Attendance
+    </button>
+  ) : (
+    "N/A"
+  )}
+</td>
+        <td>
+          <i className="bi bi-pencil-fill" onClick={() => handleEdit(activity)}></i>
+          <i className="bi bi-trash-fill" onClick={() => handleDelete(activity.actID)}></i>
+        </td>
+      </tr>
+    ))}
+</tbody>
         </table>
       </div>
 
@@ -193,11 +250,12 @@ const ActivityManagement = () => {
   <option value="Department">Department</option>
   <option value="Other">Other</option>
 </select>
-            <label>Date:</label>
+            <label>Start Date:</label>
             <input type="date" value={editActivity.date} onChange={(e) => setEditActivity({...editActivity, date: e.target.value})} />
-
+            <label>End Date:</label>
+            <input type="date" value={editActivity.end_date || ""} onChange={(e) => setEditActivity({...editActivity, end_date: e.target.value})} />
             <label>Department:</label>
-            <select value={editActivity.did} onChange={(e) => setEditActivity({...editActivity, did: e.target.value})}>
+            <select value={editActivity.did } onChange={(e) => setEditActivity({...editActivity, did: e.target.value})}>
               <option value="">Select Department</option>
               {departments.map(dept => (
                 <option key={dept.did} value={dept.did}>{dept.name}</option>
@@ -228,6 +286,8 @@ const ActivityManagement = () => {
 </select>
             <label>Date:</label>
             <input type="date" value={newActivity.date} onChange={(e) => setNewActivity({...newActivity, date: e.target.value})} />
+            <label>End Date:</label>
+            <input type="date" value={newActivity.end_date} onChange={(e) => setNewActivity({...newActivity, end_date: e.target.value})} />
             <label>Mandatory:</label>
             <select value={newActivity.mandatory} onChange={(e) => setNewActivity({...newActivity, mandatory: e.target.value})}>
               <option value="">Select value</option>

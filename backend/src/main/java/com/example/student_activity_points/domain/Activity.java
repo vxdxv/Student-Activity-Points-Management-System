@@ -1,6 +1,6 @@
 package com.example.student_activity_points.domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -25,6 +25,9 @@ public class Activity {
 
     @Column(name = "Date")
     private Date date;
+
+    @Column(name = "end_date")
+    private Date end_date;
 
     @Column(name = "type")
     private String type;
@@ -60,6 +63,9 @@ public class Activity {
 
     public Date getDate() { return date; }
     public void setDate(Date date) { this.date = date; }
+
+    public Date getEnd_date() { return end_date; }
+    public void setEnd_date(Date end_date) { this.end_date = end_date; }
 
     public String getType() { return type; }
     public void setType(String type) { this.type = type; }
