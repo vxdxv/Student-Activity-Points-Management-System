@@ -29,10 +29,9 @@ const SideBar = ({role}) => {
             {name:"Guidelines",url:"/student/guidelines",image:assets.guidelines},
         ]},
         {view:"fa",links:[
-            {name:"Dashboard",url:"/fa/dashboard"},
-            {name:"Approval",url:"/fa/approval"},
-            {name:"Announcements",url:"/fa/announcements"},
-            {name:"Activities",url:"/fa/activities"},
+            {name:"Dashboard",url:"/fa/dashboard",image:assets.dashboard},
+            {name:"Approval",url:"/fa/approvals",image:<i class="bi bi-file-check"></i>},
+            {name:"Announcements",url:"/fa/announcements",image:<i class="bi bi-megaphone-fill"></i>},
         ]},
        
     ]

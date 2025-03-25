@@ -1,72 +1,109 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff; /* Black background for the entire page */
-  margin: 0;
-  padding: 0;
-  color: #000000; /* Default text color for the page */
+.content {
+  position: absolute;
+  top: 80px;
+  left: 15%;
+  width: 80vw;
+
 }
 
-.container {
-  width: 80%;
-  margin: 50px auto;
-  background-color: #ffffff; /* Black background for the container */
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* White shadow for contrast */
-  border-radius: 15px; /* Rounded corners for the container */
-}
-
-h1 {
+.header {
+  font-size: 32px;
   text-align: center;
-  color: #000000; /* White color for the heading */
+  width: 100%;
+  display: block;
 }
 
-table {
+.header h1 {
+  text-align: center;
+}
+
+.search-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+  margin-top: 3%;
+  padding-right: 1%;
+}
+
+.search {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.body {
+  height: 65vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  margin-top: 2.5%;
+  padding-right: 2%;
+}
+
+.styled-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  background-color: #ffffff; /* White background for the table */
-  color: #000000; /* Black text color for the table */
-  border-radius: 15px; /* Rounded corners for the table */
-  overflow: hidden; /* Ensures the border radius is applied correctly */
-}
-
-th, td {
-  padding: 12px;
+  margin: 20px 0;
+  font-size: 18px;
   text-align: left;
-  border-bottom: 1px solid #ddd; /* Light gray border for contrast */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-th {
-  background-color: #f8f9fa; /* Light gray background for table headers */
-  color: #000000; /* Black text for headers */
+.styled-table th, .styled-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
 }
 
-.name-cell {
-  color: #000000; /* Black text for the "Name" column */
-  background-color: #ffffff; /* White background for the "Name" column */
-}
-
-button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 8px; /* Rounded corners for buttons */
-  cursor: pointer;
-  margin: 2px;
-}
-
-.view-btn {
-  background-color: #007bff;
+.styled-table thead {
+  background-color: #925FE2;
   color: white;
 }
 
-.validate-btn {
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.validate-btn, .approve-btn, .reject-btn {
+  padding: 8px 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.validate-btn:hover {
+  opacity: 100%;
+}
+
+.validate-btn.valid {
+  background-color: #4CAF50;
+  color: white;
+  cursor: default;
+}
+
+.validate-btn.invalid {
+  background-color: #D32F2F;
+  color: white;
+  cursor: default;
+}
+
+.approve-btn {
   background-color: #28a745;
   color: white;
 }
 
-.accept-btn {
-  background-color: #17a2b8;
-  color: white;
+.approve-btn:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
 }
 
 .reject-btn {
@@ -74,6 +111,39 @@ button {
   color: white;
 }
 
-button:hover {
-  opacity: 0.9;
+.reject-btn:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+.approved-row {
+  background-color: #d4edda; /* Light green */
+}
+
+.rejected-row {
+  background-color: #f8d7da; /* Light red */
+}
+
+.validate-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.valid {
+  color: #28a745;
+}
+
+.invalid {
+  color: #dc3545;
+ 
+}
+
+.pending {
+  background-color: #ffc107;
+  color: black;
 }

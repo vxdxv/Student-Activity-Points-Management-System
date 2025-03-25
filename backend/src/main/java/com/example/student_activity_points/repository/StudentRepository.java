@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import java.util.Optional;
+import java.util.List;
+
 
 public interface StudentRepository extends CrudRepository<Student, String> {
     
@@ -13,6 +15,9 @@ public interface StudentRepository extends CrudRepository<Student, String> {
 
     // Fetch student by student ID
     Optional<Student> findBySid(String studentID);
+
+
+    Optional<Student> findByFAID(int FAID);
 
     // Query to get total department points
     @Query("SELECT SUM(s.deptPoints) FROM Student s WHERE s.sid = :studentID")

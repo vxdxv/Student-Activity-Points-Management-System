@@ -34,9 +34,9 @@ public class Validation {
 
     @Column(name = "validated", nullable = false)
     @Enumerated(EnumType.STRING)
-    private Validated validated = Validated.No;
+    private Validated validated = Validated.Pending;
 
-    public enum Validated { No, Yes }
+    public enum Validated { No, Yes, Pending }
 
     // Getters and Setters
     public Long getVid() { return vid; }

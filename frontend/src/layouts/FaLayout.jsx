@@ -2,20 +2,19 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import NavBar from '../components/NavBar/NavBar'
 import SideBar from '../components/SideBar/SideBar'
+import './layouts.css' 
 
-const FaLayout = () => {
+const StudentLayout = () => {
   return (
     <div>
-        <div className="flex">
-        <SideBar role="faculty" />
-      <div className="flex-1">
-        <NavBar />
-        <Outlet />
-      </div>
+      <NavBar />
+      <Outlet />
+      <div className="flex">
+      <SideBar role="fa" />
+      
     </div>
     </div>
-       
   )
 }
 
-export default FaLayout
+export default StudentLayout

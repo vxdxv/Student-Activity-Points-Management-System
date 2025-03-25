@@ -41,6 +41,9 @@ public class StudentActivity {
     @Column(name = "activity_type", nullable = false)
     private String activityType; // Replacing "link" with "activity type"
 
+    @Column(name="link", nullable = false)
+    private String link;
+
     // Getters and Setters
     public String getSid() { return sid; }
     public void setSid(String sid) { this.sid = sid; }
@@ -56,6 +59,9 @@ public class StudentActivity {
 
     public int getPoints() { return points; }
     public void setPoints(int points) { this.points = points; }
+
+    public String getLink() { return link; }
+    public void setLink(String link) { this.link = link; }
 
     public String getActivityType() { return activityType; }
     public void setActivityType(String activityType) { this.activityType = activityType; }

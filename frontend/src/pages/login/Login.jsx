@@ -12,7 +12,7 @@ const LoginPage = () => {
     <div className="login-container">
       <div className="left-panel">
         <div className="max-width-md">
-          <h1 style={{ animationDelay: '0.1s',transform: 'translateY(-25%)' }}>Hello!</h1>
+          <h1 style={{ animationDelay: '0.1s',transform: 'translateY(-25%)',textAlign:"left" }}>Hello!</h1>
           <p className="subheading" style={{ animationDelay: '0.2s', transform: 'translateY(-15%)' }}>
             Choose your login option
           </p>
