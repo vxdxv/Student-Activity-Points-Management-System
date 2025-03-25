@@ -17,7 +17,7 @@ public interface StudentRepository extends CrudRepository<Student, String> {
     Optional<Student> findBySid(String studentID);
 
 
-    Optional<Student> findByFAID(int FAID);
+    List<Student> findByFAID(int FAID);
 
     // Query to get total department points
     @Query("SELECT SUM(s.deptPoints) FROM Student s WHERE s.sid = :studentID")
