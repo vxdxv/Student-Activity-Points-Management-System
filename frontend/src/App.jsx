@@ -22,11 +22,11 @@ import Tracking from "./pages/student/Tracking";
 import AnnouncementDetail from "./pages/student/AnnouncementDetail";
 import LoginPage from "./pages/login/Login";
 
-import FaDashboard from "./pages/fa/fadashboard/FaDashboard"
-import Approvals from "./pages/fa/fadashboard/approvals";
-import StudentDetails from "./pages/fa/fadashboard/StudentDetails"
-import StudentList from "./pages/fa/fadashboard/StudentList";
-import AnnouncementPage from "./pages/fa/fadashboard/AnnouncementPage";
+import FaDashboard from "./pages/fa/FaDashboard"
+import Approvals from "./pages/fa/Approvals";
+import StudentDetails from "./pages/fa/StudentDetails"
+import StudentList from "./pages/fa/StudentList";
+import AnnouncementPage from "./pages/fa/AnnouncementPage";
 
 const ProtectedRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
@@ -120,7 +120,7 @@ function App() {
                     <Route path="announcements" element={<Announcements />} />
                     <Route path="announcements/:id" element={<AnnouncementDetail />} />
                     <Route path="student-list" element={<StudentList />} />
-                    <Route path="student-details/:id" element={<StudentDetails />} />
+                    <Route path="student-details/:sid" element={<StudentDetails />} />
                 </Route>
 
                 {/* Login Route */}

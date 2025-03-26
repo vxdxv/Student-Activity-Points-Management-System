@@ -5,8 +5,10 @@ import com.example.student_activity_points.domain.StudentActivity;
 import com.example.student_activity_points.domain.Announcements;
 import com.example.student_activity_points.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.*;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,5 +60,26 @@ public class StudentController {
     @GetMapping("/announcements")
     public List<Announcements> getAnnouncements() {
         return studentService.getAnnouncements();
+    }
+    @GetMapping("/fa/student-list/{FAID}")
+    public List<Student> getStudentsByFAID(@PathVariable int FAID) {
+    return studentService.getStudentsByFAID(FAID);
+}
+
+   @GetMapping("/fa/student-details/{sid}")
+    public ResponseEntity<?> getStudentBySid(@PathVariable String sid) {
+        Optional<Student> student = studentService.getStudentById(sid);
+        
+        if (student.isPresent()) {
+            List<StudentActivity> activities = studentService.getStudentActivities(sid);
+            
+            Map<String, Object> response = new HashMap<>();
+            response.put("student", student.get());
+            response.put("activities", activities);
+            
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.status(404).body(Map.of("error", "Student not found"));
+        }
     }
 }

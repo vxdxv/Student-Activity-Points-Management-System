@@ -22,32 +22,46 @@ public class AuthController {
     @Autowired
     private FARepository faRepository;
 
-    @PostMapping("/login-student")
+ @PostMapping("/login-student")
 public ResponseEntity<?> loginstudent(@RequestBody Map<String, String> request) {
     String email = request.get("email");
-    System.out.println("Email: " + email);
+    System.out.println("Student Login - Email: " + email);
 
-    Optional<Student> student = studentRepository.findByEmailID(email);
-    Student studentDetails = student.orElse(null);
+    Optional<Student> studentOptional = studentRepository.findByEmailID(email);
 
-    if (studentDetails != null) {
-        return ResponseEntity.ok(studentDetails); // Send student details
+    if (studentOptional.isPresent()) {
+        Student student = studentOptional.get();
+        Map<String, Object> response = Map.of(
+            "sid", student.getSid(),
+            "name", student.getName(),
+            "email", student.getEmailID(),
+            "role", "student" // ✅ Added role for student
+        );
+        return ResponseEntity.ok(response);
     } else {
         return ResponseEntity.status(401).body("Invalid email");
     }
 }
 
     @PostMapping("/login-fa")
-    public ResponseEntity<String> loginfa(@RequestBody Map<String, String> request) {
-        String email = request.get("email");
-        System.out.println("Email: " + email);
-        // Fetch student by email
-        Optional<Fa> fa = faRepository.findByEmailID(email);
+public ResponseEntity<?> loginFA(@RequestBody Map<String, String> request) {
+    String email = request.get("email");
+    System.out.println("FA Login - Email: " + email);
 
-        if (fa.isPresent() ) {
-            return ResponseEntity.ok("Login successful!");
-        } else {
-            return ResponseEntity.status(401).body("Invalid email");
-        }
+    Optional<Fa> faOptional = faRepository.findByEmailID(email);
+
+    if (faOptional.isPresent()) {
+        Fa fa = faOptional.get();
+        Map<String, Object> response = Map.of(
+            "faid", fa.getFAID(),
+            "name", fa.getName(),
+            "email", fa.getEmailID(),
+            "role", "fa"
+        );
+        return ResponseEntity.ok(response);
+    } else {
+        return ResponseEntity.status(401).body("Invalid email");
     }
 }
+
+    }

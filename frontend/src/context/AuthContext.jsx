@@ -28,16 +28,16 @@ const AuthProvider = ({ children }) => {
             },
           }
         );
-
         console.log('Google User Data:', data);
-
         const response = await axios.post('/api/auth/login-student', {
           email: data.email,
         });
-
+  
         if (response.status === 200) {
-          localStorage.setItem('user', JSON.stringify(response.data));
-          setUser(response.data);
+          const studentDetails = response.data;
+          studentDetails.role = "student"; // Ensure role is stored
+          localStorage.setItem('user', JSON.stringify(studentDetails));
+          setUser(studentDetails);
           navigate('/student/dashboard');
         } else {
           console.error('Authentication failed: ', response.data);
@@ -50,6 +50,8 @@ const AuthProvider = ({ children }) => {
       console.error('Login Failed');
     },
   });
+  
+
 
   const loginfa = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -63,16 +65,18 @@ const AuthProvider = ({ children }) => {
             },
           }
         );
-
+  
         console.log('Google User Data:', data);
-
+  
         const response = await axios.post('/api/auth/login-fa', {
           email: data.email,
         });
-
+  
         if (response.status === 200) {
-          localStorage.setItem('user', JSON.stringify(data));
-          setUser(data);
+          const faDetails = response.data;
+          faDetails.role = "fa"; // Ensure role is stored
+          localStorage.setItem('user', JSON.stringify(faDetails)); // Store FA details under 'user'
+          setUser(faDetails);
           navigate('/fa/dashboard');
         } else {
           console.error('Authentication failed: ', response.data);
@@ -85,12 +89,25 @@ const AuthProvider = ({ children }) => {
       console.error('Login Failed');
     },
   });
+  
 
-  const logout = () => {
-    localStorage.clear();
-    setUser(null);
-    navigate('/login');
-  };
+  
+const logout = () => {
+  localStorage.clear();
+  setUser(null);
+
+  // Alternative way to close window safely
+  if (window.opener) {
+      window.opener.postMessage("auth-success", "*");
+      window.close();
+  } else {
+      window.open("about:blank", "_self");
+      window.close();
+  }
+
+  navigate('/login');
+};
+
 
   return (
     <AuthContext.Provider value={{ user, loginstudent,loginfa, logout, loading }}>

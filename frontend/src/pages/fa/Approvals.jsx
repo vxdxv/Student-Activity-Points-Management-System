@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./approvals.css";
-import { AuthContext } from "../../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 
 const Approvals = () => {
@@ -8,6 +8,8 @@ const Approvals = () => {
   const [requests, setRequests] = useState([]);
   const [faDetails, setFaDetails] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [points, setPoints] = useState({});
+
 
   // Fetch FA Details and Requests
   useEffect(() => {
@@ -25,7 +27,8 @@ const Approvals = () => {
           faId: response.data.fa_id,
           name: response.data.name
         });
-        setRequests(response.data.requests);
+        setRequests(response.data);
+        console.log(response.data);
       }
     } catch (error) {
       console.error("Error fetching FA details", error);
@@ -55,12 +58,17 @@ const Approvals = () => {
 
   // Approve Request
   const handleApprove = async (rid, index) => {
+    const enteredPoints = points[rid]; 
+    if (!enteredPoints || isNaN(enteredPoints) || enteredPoints <= 0) {
+      enteredPoints=5;
+      return;
+    }
     try {
-      const response = await axios.post(`/api/fa/approve-request/${rid}?email=${user.email}&points=${10}`);
+
+      const response = await axios.post(`/api/fa/approve-request/${rid}?email=${user.email}&points=${enteredPoints}`);
       if (response.status === 200) {
-        const updatedRequests = [...requests];
-        updatedRequests[index].status = "Approved";
-        setRequests(updatedRequests);
+        await fetchfaData(user.email);
+        alert("Approve=al successful")
       }
     } catch (error) {
       console.error("Approval error", error);
@@ -110,7 +118,9 @@ const Approvals = () => {
               <th>Activity Date</th>
               <th>Type</th>
               <th>Status</th>
+              <th>Link</th>
               <th>Validate</th>
+              <th>Points</th>
               <th>Approve</th>
               <th>Reject</th>
             </tr>
@@ -128,15 +138,24 @@ const Approvals = () => {
                   <td>
                     {req.waiting_for_other_FAs ? "⏳ Waiting for Others" : req.status}
                   </td>
+                  <td>{req.link}</td>
                   <td>
                   <button
   className={`validate-btn ${req.validated === "Yes" ? "valid" : req.validated === "No" ? "invalid" : req.validated === "Pending" ? "pending" : ""}`}
   onClick={() => handleValidation(req.rid, index)}
-  disabled={req.validated === "Yes"} // Disable if already validated
+  disabled={req.validated === "Yes" || req.validated==="No" || req.validated==="N/A" || req.validated==="Not uploaded"} // Disable if already validated
 >
-  {req.validated === "Yes" ? <i class="bi bi-check-circle-fill"></i> : req.validated === "No" ? <i class="bi bi-x-circle"></i> : req.validated === "Pending" ? "⏳ Pending" : "Validate"}
+  {req.validated === "Yes" ? <i class="bi bi-check-circle-fill"></i> : req.validated === "No" ? <i class="bi bi-x-circle"></i> : req.validated === "Not uploaded" ? "⏳ Waiting for upload" : "N/A"}
 </button>
                   </td>
+                  <td>
+  <input
+    type="text"
+    className="points"
+    value={points[req.rid] || ""}  // Bind value to state
+    onChange={(e) => setPoints({ ...points, [req.rid]: e.target.value })} // Update state on change
+  />
+</td>
                   <td>
                     <button
                       className="approve-btn"
