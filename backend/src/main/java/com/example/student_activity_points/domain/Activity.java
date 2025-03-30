@@ -1,6 +1,10 @@
 package com.example.student_activity_points.domain;
 
+<<<<<<< HEAD
 import javax.persistence.*;
+=======
+import jakarta.persistence.*;
+>>>>>>> NEW-FINAL-MAIN
 import java.util.Date;
 import java.util.List;
 
@@ -26,6 +30,12 @@ public class Activity {
     @Column(name = "Date")
     private Date date;
 
+<<<<<<< HEAD
+=======
+    @Column(name = "end_date")
+    private Date end_date;
+
+>>>>>>> NEW-FINAL-MAIN
     @Column(name = "type")
     private String type;
 
@@ -42,8 +52,13 @@ public class Activity {
     @OneToMany(mappedBy = "activity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
      private List<StudentActivity> studentActivities;
 
+<<<<<<< HEAD
     @OneToMany(mappedBy = "activity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
 private List<Validation> validations;
+=======
+//     @OneToMany(mappedBy = "activity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+// private List<Validation> validations;
+>>>>>>> NEW-FINAL-MAIN
      
     // Getters and setters
     public Long getActID() { return actID; }
@@ -61,6 +76,12 @@ private List<Validation> validations;
     public Date getDate() { return date; }
     public void setDate(Date date) { this.date = date; }
 
+<<<<<<< HEAD
+=======
+    public Date getEnd_date() { return end_date; }
+    public void setEnd_date(Date end_date) { this.end_date = end_date; }
+
+>>>>>>> NEW-FINAL-MAIN
     public String getType() { return type; }
     public void setType(String type) { this.type = type; }
 
@@ -79,6 +100,7 @@ private List<Validation> validations;
     public List<StudentActivity> getStudentActivities() { return studentActivities; }
     public void setStudentActivities(List<StudentActivity> studentActivities) { this.studentActivities = studentActivities; }
 
+<<<<<<< HEAD
     public List<Validation> getValidations() {
         return validations;
     }
@@ -86,5 +108,14 @@ private List<Validation> validations;
     public void setValidations(List<Validation> validations) {
         this.validations = validations;
     }
+=======
+    // public List<Validation> getValidations() {
+    //     return validations;
+    // }
+    
+    // public void setValidations(List<Validation> validations) {
+    //     this.validations = validations;
+    //}
+>>>>>>> NEW-FINAL-MAIN
     
 }

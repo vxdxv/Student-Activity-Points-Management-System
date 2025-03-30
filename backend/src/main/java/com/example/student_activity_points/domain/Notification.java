@@ -1,10 +1,14 @@
 package com.example.student_activity_points.domain;
 
+<<<<<<< HEAD
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+=======
+import jakarta.persistence.*;
+>>>>>>> NEW-FINAL-MAIN
 import java.util.Date;
 
 @Entity

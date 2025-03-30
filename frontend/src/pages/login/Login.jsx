@@ -1,13 +1,22 @@
 import React, { useState,useContext} from 'react';
+<<<<<<< HEAD
 import { ChevronRight, UserCircle2, Users, ArrowRight } from 'lucide-react';
 import twoPersonImg from '../../assets/twopersons.png';
 import { AuthContext } from '../../context/AuthContext';
+=======
+import { ChevronRight, UserCircle2, Users, ShieldUser } from 'lucide-react';
+import twoPersonImg from '../../assets/twopersons.png';
+import { AuthContext } from '../../context/AuthContext';
+import { Link } from "react-router-dom";
+import "./login.css";
+>>>>>>> NEW-FINAL-MAIN
 const LoginPage = () => {
 
     const { loginstudent,loginfa } = useContext(AuthContext);
 
   return (
     <div className="login-container">
+<<<<<<< HEAD
       <style>{`
         /* Container & Global Styles */
         .login-container {
@@ -210,6 +219,12 @@ const LoginPage = () => {
         <div className="max-width-md">
           <h1 style={{ animationDelay: '0.1s' }}>Hello!</h1>
           <p className="subheading" style={{ animationDelay: '0.2s' }}>
+=======
+      <div className="left-panel">
+        <div className="max-width-md">
+          <h1 style={{ animationDelay: '0.1s',transform: 'translateY(-25%)',textAlign:"left" }}>Hello!</h1>
+          <p className="subheading" style={{ animationDelay: '0.2s', transform: 'translateY(-15%)' }}>
+>>>>>>> NEW-FINAL-MAIN
             Choose your login option
           </p>
           <div className="login-options">
@@ -224,14 +239,23 @@ const LoginPage = () => {
                 </div>
                 <div className="option-icon">
                   <UserCircle2 size={24} />
+<<<<<<< HEAD
+=======
+                  <ChevronRight size={20} style={{ transform: 'translateX(0)', transition: 'transform 0.2s' }}/>
+>>>>>>> NEW-FINAL-MAIN
                 </div>
               </button>
             </div>
             <div style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
               <button className="login-option"  onClick={() =>loginfa()}>
                 <div className="option-text">
+<<<<<<< HEAD
                   <h3>Staff</h3>
                   <p>Exclusive to staff members only.</p>
+=======
+                  <h3>Faculty Advisor</h3>
+                  <p>Exclusive to faculty members only.</p>
+>>>>>>> NEW-FINAL-MAIN
                 </div>
                 <div className="option-icon">
                   <Users size={24} />
@@ -242,6 +266,24 @@ const LoginPage = () => {
                 </div>
               </button>
             </div>
+<<<<<<< HEAD
+=======
+            <div style={{ animationDelay: '0.4s', animationFillMode: 'both' }}>
+              <Link to="/admin" className="login-optionn"> 
+                <div className="option-text">
+                  <h3>Admin</h3>
+                  <p>Exclusive to Admins only.</p>
+                </div>
+                <div className="option-icon">
+                  <ShieldUser size={24} />
+                  <ChevronRight
+                    size={20}
+                    style={{ transform: 'translateX(0)', transition: 'transform 0.2s' }}
+                  />
+                </div>
+              </Link>
+            </div>
+>>>>>>> NEW-FINAL-MAIN
           </div>
         </div>
       </div>

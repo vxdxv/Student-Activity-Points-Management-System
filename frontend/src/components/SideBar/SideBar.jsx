@@ -26,6 +26,7 @@ const SideBar = ({role}) => {
             {name:"Activity History",url:"/student/activity-history",image:<i class="bi bi-hourglass-bottom"></i>},
             {name:"Activities",url:"/student/activities",image:<i class="bi bi-hourglass-bottom"></i>},
             {name:"Request Form",url:"/student/request-form",image:<i class="bi bi-file-earmark-text"></i>},
+<<<<<<< HEAD
             {name:"Guidelines",url:"/student/help",image:assets.guidelines},
         ]},
         {view:"fa",links:[
@@ -33,6 +34,14 @@ const SideBar = ({role}) => {
             {name:"Approval",url:"/fa/approval"},
             {name:"Announcements",url:"/fa/announcements"},
             {name:"Activities",url:"/fa/activities"},
+=======
+            {name:"Guidelines",url:"/student/guidelines",image:assets.guidelines},
+        ]},
+        {view:"fa",links:[
+            {name:"Dashboard",url:"/fa/dashboard",image:assets.dashboard},
+            {name:"Approval",url:"/fa/approvals",image:<i class="bi bi-file-check"></i>},
+            {name:"Announcements",url:"/fa/announcements",image:<i class="bi bi-megaphone-fill"></i>},
+>>>>>>> NEW-FINAL-MAIN
         ]},
        
     ]

@@ -71,6 +71,10 @@ public class AdminManageActivitiesController {
                 existingActivity.setDescription(updatedActivity.getDescription());
                 existingActivity.setOutside_inside(updatedActivity.getOutside_inside());
                 existingActivity.setDate(updatedActivity.getDate());
+<<<<<<< HEAD
+=======
+                existingActivity.setEnd_date(updatedActivity.getEnd_date());
+>>>>>>> NEW-FINAL-MAIN
                 existingActivity.setPoints(updatedActivity.getPoints());
                 existingActivity.setNo_of_people(updatedActivity.getNo_of_people());
 

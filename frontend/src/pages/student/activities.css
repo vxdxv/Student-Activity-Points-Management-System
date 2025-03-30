@@ -1,14 +1,21 @@
 .activities-container {
   padding: 20px;
   font-family: "Arial", sans-serif;
+<<<<<<< HEAD
   margin-top:5%;
   margin-left:10%;
   width:85vw;
+=======
+  margin-top: 5%;
+  margin-left: 12%;
+  width: 85vw;
+>>>>>>> NEW-FINAL-MAIN
 }
 
 h2 {
   font-size: 24px;
   margin-bottom: 15px;
+<<<<<<< HEAD
 
 }
 
@@ -22,6 +29,19 @@ h2 {
   scrollbar-width: none;
  
 
+=======
+}
+
+.activities-list {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 80vh;
+  /* Use a max height to allow scrolling if needed */
+  overflow-y: auto;
+  scrollbar-width: none;
+>>>>>>> NEW-FINAL-MAIN
 }
 
 .activity-card {
@@ -32,20 +52,34 @@ h2 {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
   margin-left:50px;
+=======
+  /* Removed margin-left to keep content within container */
+>>>>>>> NEW-FINAL-MAIN
 }
 
 .activity-details h3 {
   margin: 0;
   font-size: 22px;
+<<<<<<< HEAD
   color:black;
+=======
+  color: black;
+>>>>>>> NEW-FINAL-MAIN
 }
 
 .activity-details p {
   margin: 3px 0;
   font-size: 14px;
+<<<<<<< HEAD
   color:white;
   margin-left:25px;
+=======
+  color: white;
+  margin-left: 25px;
+  text-align: left;
+>>>>>>> NEW-FINAL-MAIN
 }
 
 .activity-points {
@@ -53,9 +87,17 @@ h2 {
   align-items: center;
   gap: 5px;
   font-size: 18px;
+<<<<<<< HEAD
   margin-right:40px;
+=======
+  margin-right: 40px;
+>>>>>>> NEW-FINAL-MAIN
 }
 
 .star-icon {
   color: gold;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> NEW-FINAL-MAIN

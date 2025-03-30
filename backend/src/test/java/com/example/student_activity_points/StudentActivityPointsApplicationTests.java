@@ -6,8 +6,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class StudentActivityPointsApplicationTests {
 
+<<<<<<< HEAD
 	@Test
 	void contextLoads() {
 	}
 
+=======
+>>>>>>> NEW-FINAL-MAIN
 }

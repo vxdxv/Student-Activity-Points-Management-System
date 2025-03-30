@@ -28,6 +28,7 @@ const AuthProvider = ({ children }) => {
             },
           }
         );
+<<<<<<< HEAD
 
         console.log('Google User Data:', data);
 
@@ -38,6 +39,18 @@ const AuthProvider = ({ children }) => {
         if (response.status === 200) {
           localStorage.setItem('user', JSON.stringify(data));
           setUser(data);
+=======
+        console.log('Google User Data:', data);
+        const response = await axios.post('/api/auth/login-student', {
+          email: data.email,
+        });
+  
+        if (response.status === 200) {
+          const studentDetails = response.data;
+          studentDetails.role = "student"; // Ensure role is stored
+          localStorage.setItem('user', JSON.stringify(studentDetails));
+          setUser(studentDetails);
+>>>>>>> NEW-FINAL-MAIN
           navigate('/student/dashboard');
         } else {
           console.error('Authentication failed: ', response.data);
@@ -50,6 +63,11 @@ const AuthProvider = ({ children }) => {
       console.error('Login Failed');
     },
   });
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> NEW-FINAL-MAIN
 
   const loginfa = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
@@ -63,6 +81,7 @@ const AuthProvider = ({ children }) => {
             },
           }
         );
+<<<<<<< HEAD
 
         console.log('Google User Data:', data);
 
@@ -73,6 +92,20 @@ const AuthProvider = ({ children }) => {
         if (response.status === 200) {
           localStorage.setItem('user', JSON.stringify(data));
           setUser(data);
+=======
+  
+        console.log('Google User Data:', data);
+  
+        const response = await axios.post('/api/auth/login-fa', {
+          email: data.email,
+        });
+  
+        if (response.status === 200) {
+          const faDetails = response.data;
+          faDetails.role = "fa"; // Ensure role is stored
+          localStorage.setItem('user', JSON.stringify(faDetails)); // Store FA details under 'user'
+          setUser(faDetails);
+>>>>>>> NEW-FINAL-MAIN
           navigate('/fa/dashboard');
         } else {
           console.error('Authentication failed: ', response.data);
@@ -85,12 +118,22 @@ const AuthProvider = ({ children }) => {
       console.error('Login Failed');
     },
   });
+<<<<<<< HEAD
 
   const logout = () => {
     localStorage.clear();
     setUser(null);
     navigate('/login');
   };
+=======
+  
+const logout = () => {
+  localStorage.clear();
+  setUser(null);
+  navigate('/login');
+};
+
+>>>>>>> NEW-FINAL-MAIN
 
   return (
     <AuthContext.Provider value={{ user, loginstudent,loginfa, logout, loading }}>

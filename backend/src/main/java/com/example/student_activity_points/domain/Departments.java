@@ -1,6 +1,11 @@
 package com.example.student_activity_points.domain;
 
+<<<<<<< HEAD
 import javax.persistence.*;
+=======
+import jakarta.persistence.*;
+
+>>>>>>> NEW-FINAL-MAIN
 import java.util.Date;
 
 

@@ -89,6 +89,10 @@
     display: flex;
     flex-direction: column;
     width: 75vw;
+<<<<<<< HEAD
+=======
+   
+>>>>>>> NEW-FINAL-MAIN
   }
   
   .announcement {
@@ -101,7 +105,15 @@
     border-radius: 8px;
     text-decoration: none; /* Removes link underline */
     color: inherit; /* Ensures text color remains unchanged */
+<<<<<<< HEAD
     background: #fff;
+=======
+    background-color: #fff;
+    border: 2px solid #6f42c1;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+>>>>>>> NEW-FINAL-MAIN
   }
   
   .announcement:hover {
@@ -115,6 +127,10 @@
   .announcement-details p{
     color:gray;
     font-size: small;
+<<<<<<< HEAD
+=======
+    background-color: #fff;
+>>>>>>> NEW-FINAL-MAIN
   }
   
   .announcement span {

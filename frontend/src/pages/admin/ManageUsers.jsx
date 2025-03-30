@@ -25,14 +25,18 @@ const ManageUsers = () => {
     deptPoints: "",
     institutePoints: "",
   });
+<<<<<<< HEAD
   const [editEmailError, setEditEmailError] = useState(""); // Store email error messages
   
 const [faEmailError, setFAEmailError] = useState(""); // Store FA email error message
+=======
+>>>>>>> NEW-FINAL-MAIN
   const [faculty,newFaculty]=useState({
     name:'',
     did:'',
     emailID:''
   });
+<<<<<<< HEAD
   const [emailError, setEmailError] = useState(""); // Store email error message
 
 const handleEmailChange = (e) => {
@@ -72,6 +76,8 @@ const handleFAEmailChange = (e) => {
   // No errors
   setFAEmailError("");
 };
+=======
+>>>>>>> NEW-FINAL-MAIN
 
   useEffect(() => {
     fetchStudData();
@@ -129,6 +135,7 @@ const handleFAEmailChange = (e) => {
     }
   };
 
+<<<<<<< HEAD
 
 
 const handleEditEmailChange = (e) => {
@@ -156,6 +163,16 @@ const handleEditEmailChange = (e) => {
   setEditEmailError("");
 };
 
+=======
+  const handleDelete = (type, index) => {
+    if (type === 'student') {
+      setStudents(students.filter((_, i) => i !== index));
+    } else {
+      setFaculties(faculties.filter((_, i) => i !== index));
+
+    }
+  };
+>>>>>>> NEW-FINAL-MAIN
 
   const handleEdit = (type, index) => {
     if (type === 'student') {
@@ -294,6 +311,7 @@ const filteredFaculties = faculties.filter(fa =>
           onChange={(e) => newFaculty({ ...faculty, name: e.target.value })} 
         />
       </div>
+<<<<<<< HEAD
       <div className="input-group">
   <label>Email:</label>
   <input 
@@ -306,6 +324,18 @@ const filteredFaculties = faculties.filter(fa =>
   {faEmailError && <p className="error-message">{faEmailError}</p>} {/* Show error message */}
 </div>
 
+=======
+
+      <div className="input-group">
+        <label>Email:</label>
+        <input 
+          type="email" 
+          placeholder="Enter email"  
+          value={faculty.emailID || ""} 
+          onChange={(e) => newFaculty({ ...faculty, emailID: e.target.value })} 
+        />
+      </div>
+>>>>>>> NEW-FINAL-MAIN
 
       <div className="input-group">
         <label>Department:</label>
@@ -359,6 +389,7 @@ const filteredFaculties = faculties.filter(fa =>
 </div>
 
 
+<<<<<<< HEAD
       
 <div className="input-group">
   <label>Email:</label>
@@ -372,6 +403,17 @@ const filteredFaculties = faculties.filter(fa =>
   {emailError && <p className="error-message">{emailError}</p>} {/* Show error message */}
 </div>
 
+=======
+      <div className='input-group'>
+        <label>Email:</label>
+        <input 
+          type="email" 
+          placeholder="Enter email" 
+          value={student.emailID || ""} 
+          onChange={(e) => newStudent({ ...student, emailID: e.target.value })} 
+        />
+      </div>
+>>>>>>> NEW-FINAL-MAIN
 
       <div className='input-group'>
         <label>Department:</label>
@@ -442,6 +484,7 @@ const filteredFaculties = faculties.filter(fa =>
       </div>
 
       <div className='input-group'>
+<<<<<<< HEAD
   <label>Email:</label>
   <input 
     type="email" 
@@ -452,6 +495,15 @@ const filteredFaculties = faculties.filter(fa =>
   {editEmailError && <p className="error-message">{editEmailError}</p>} {/* Show error message */}
 </div>
 
+=======
+        <label>Email:</label>
+        <input 
+          type="email" 
+          value={editData.emailID || ''} 
+          onChange={(e) => setEditData({ ...editData, emailID: e.target.value })} 
+        />
+      </div>
+>>>>>>> NEW-FINAL-MAIN
 
       <div className='input-group'>
         <label>Department:</label>
