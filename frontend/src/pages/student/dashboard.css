@@ -1,0 +1,89 @@
+.dashboard-container {
+    display: flex;
+    margin-left:15%;
+    margin-top: 5%;
+}
+
+.main-content {
+    width: 90%;
+    padding-top: 2%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard-title {
+    text-align: center;
+    font-size: 1.8vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left:35%;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    margin-right:0.25%;
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: 5.2%;
+    height: 4vh;
+}
+
+.welcome-banner {
+    background-color: #6f42c1;
+    color: white;
+    padding: 2%;
+    border-radius: 8px;
+    margin-top: 2%;
+}
+
+.progress-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+}
+
+.progress-box {
+    background-color: #f8f9fa;
+    padding: 2%;
+    text-align: center;
+    border-radius: 8px;
+    width: 30%;
+}
+
+.activity-section, .announcement-section {
+    margin-top: 3%;
+}
+
+.section-title {
+    text-align: left;
+    font-size: 1vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 3%;
+}
+
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1%;
+}
+
+.activity-table th, .activity-table td {
+    border: 1px solid #ddd;
+    padding: 1%;
+    text-align: center;
+}
+
+.announcement-box {
+    background-color: #f8f9fa;
+    padding: 2%;
+    border-radius: 8px;
+    margin-top: 2%;
+}
