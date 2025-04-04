@@ -5,6 +5,7 @@ import "./request.css";
 
 const RequestForm = () => {
   const { user, loading } = useContext(AuthContext);
+  const [activities, setActivities] = useState([]);
   const [formData, setFormData] = useState({
     category: "",
     activity: "",
@@ -20,6 +21,35 @@ const RequestForm = () => {
   const [faculties, setFaculties] = useState([]);
   const [errors, setErrors] = useState({});
 
+  const fetchActivityData = async () => {
+    try {
+      const response = await axios.get("/api/admin/manage-activities");
+      if (response.status === 200) {
+        const today = new Date();
+        const updatedActivities = response.data.map(activity => {
+          const startDate = new Date(activity.start_date); // Make sure your backend sends a start_date field
+          const endDate = new Date(activity.end_date); 
+  
+          let status = "Upcoming";
+          if (today >= startDate && today <= endDate) {
+            status = "Ongoing";
+          } else if (today > endDate) {
+            status = "Completed";
+          }
+          return { ...activity, status };
+        });
+  
+        setActivities(updatedActivities);
+      } else {
+        alert('Error loading activities!');
+      }
+    } catch (error) {
+      console.error('Error fetching activities', error);
+      alert('Failed to fetch activities!');
+    }
+  };
+  
+
   // Fetch FA data from API
   useEffect(() => {
     const fetchFAData = async () => {
@@ -34,6 +64,7 @@ const RequestForm = () => {
       }
     };
     fetchFAData();
+    fetchActivityData();
   }, []);
 
   // Extract SID from email
@@ -101,21 +132,22 @@ const RequestForm = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       try {
-        const sid = user && user.email ? extractSid(user.email) : "";
+        const sid = user.sid;
         const faIds = formData["select FA"].map(v => parseInt(v, 10));
-
+        // console.log(user.sid)
         const payload = {
           sid: sid,
-          date: new Date().toISOString(),
+          date: new Date(),
           status: "Pending",
           link: formData.pastUrl,
-          decisionDate: new Date().toISOString(),
+          decisionDate: new Date(),
           activityName: formData.isCustomActivity ? formData.activityName : formData.activity,
           description: formData.description,
           activityDate: formData.date,
           type: formData.category,
           pastUrl: formData.pastUrl,
-          "select FA": faIds
+          faIds: faIds,
+           
         };
 
         const response = await fetch("http://localhost:8080/requests", {
@@ -231,9 +263,8 @@ const RequestForm = () => {
                   onChange={handleChange}
                 >
                   <option value="">Select an activity</option>
-                  <option value="Sports">Sports</option>
-                  <option value="Volunteering">Volunteering</option>
-                  <option value="Cultural Event">Cultural Event</option>
+                  {activities.map(activity => (<option key={activity.name} >{activity.name}</option>)
+                    )}
                 </select>
                 {errors.activity && <span className="error">{errors.activity}</span>}
                 <div className="url-and-not-listed">

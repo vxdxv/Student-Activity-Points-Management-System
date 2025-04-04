@@ -96,6 +96,12 @@
   cursor: default;
 }
 
+.validate-btn.n-a{
+  background-color: grey;
+  color: white;
+  cursor: default;
+}
+
 .approve-btn {
   background-color: #28a745;
   color: white;

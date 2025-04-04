@@ -1,6 +1,5 @@
 package com.example.student_activity_points.domain;
-
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity

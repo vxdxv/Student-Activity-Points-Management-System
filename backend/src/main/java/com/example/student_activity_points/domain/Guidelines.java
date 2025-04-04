@@ -1,6 +1,6 @@
 package com.example.student_activity_points.domain;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "guidelines")

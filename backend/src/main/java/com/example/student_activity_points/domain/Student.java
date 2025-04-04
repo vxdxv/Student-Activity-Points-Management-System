@@ -1,7 +1,7 @@
 package com.example.student_activity_points.domain;
 import java.util.Date;
 import java.util.List;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Student")

@@ -149,7 +149,7 @@ const Approvals = () => {
                   </td>
                   <td>
                   <button
-  className={`validate-btn ${req.validated === "Yes" ? "valid" : req.validated === "No" ? "invalid" : req.validated === "Pending" ? "pending" : ""}`}
+  className={`validate-btn ${req.validated === "Yes" ? "valid" : req.validated === "No" ? "invalid" : req.validated === "Pending" ? "pending" : "n-a"}`}
   onClick={() => handleValidation(req.rid, index)}
   disabled={req.validated === "Yes" || req.validated==="No" || req.validated==="N/A" || req.validated==="Not uploaded"} // Disable if already validated
 >

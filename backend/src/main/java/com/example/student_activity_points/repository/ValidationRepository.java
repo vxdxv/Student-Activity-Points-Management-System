@@ -5,7 +5,10 @@ import com.example.student_activity_points.domain.Validation;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import jakarta.transaction.Transactional;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
 
 public interface ValidationRepository extends CrudRepository<Validation, Long> {
@@ -19,5 +22,8 @@ public interface ValidationRepository extends CrudRepository<Validation, Long> {
     // Corrected method to find Validation by actID and sid
     @Query(value = "SELECT * FROM Validation WHERE actID = ?1 AND SID = ?2", nativeQuery = true)
     Validation findByActIDAndSID(Long actID, String SID);
+
+    @Query(value = "SELECT * FROM Validation WHERE actID = ?1", nativeQuery = true)
+    List<Validation> findByActID(Long actID);
 }
 

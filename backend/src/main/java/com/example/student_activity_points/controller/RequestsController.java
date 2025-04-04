@@ -1,12 +1,20 @@
 package com.example.student_activity_points.controller;
 
+import com.example.student_activity_points.domain.Requested;
 import com.example.student_activity_points.domain.Requests;
+import com.example.student_activity_points.domain.Requests.Status;
+import com.example.student_activity_points.repository.RequestedRepository;
 import com.example.student_activity_points.repository.RequestsRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.example.student_activity_points.domain.Requests.Type;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -14,6 +22,9 @@ import java.util.Optional;
 public class RequestsController {
 
     private final RequestsRepository requestsRepository;
+
+    @Autowired
+    private RequestedRepository requestedRepository;
 
     public RequestsController(RequestsRepository requestsRepository) {
         this.requestsRepository = requestsRepository;
@@ -43,9 +54,72 @@ public class RequestsController {
 
     // Create a new request
     @PostMapping
-    public Requests createRequest(@RequestBody Requests request) {
-        return requestsRepository.save(request);
+    public Requests createRequest(@RequestBody Map<String, Object> requestBody) {
+        System.out.println(requestBody.get("sid"));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"); 
+        Requests request = new Requests();
+        request.setSid((String) requestBody.get("sid"));
+        request.setStatus(Status.Pending);
+        request.setLink((String) requestBody.get("link"));
+        System.out.println(requestBody.get("activityDate"));
+
+        try {
+            // Validate and parse decisionDate
+            String decisionDateStr = (String) requestBody.get("decisionDate");
+            if (decisionDateStr != null && !decisionDateStr.isEmpty()) {
+                request.setDecisionDate(dateFormat.parse(decisionDateStr));
+            } else {
+                System.err.println("Invalid or missing decisionDate");
+                request.setDecisionDate(null); // Set to null or handle as needed
+            }
+
+            // Validate and parse activityDate
+            String activityDateStr = (String) requestBody.get("activityDate");
+            if (activityDateStr != null && !activityDateStr.isEmpty()) {
+                request.setActivityDate(dateFormat.parse(activityDateStr));
+            } else {
+                System.err.println("Invalid or missing activityDate");
+                request.setActivityDate(null); // Set to null or handle as needed
+            }
+
+            request.setDate(new Date()); // Current date
+        } catch (ParseException e) {
+            e.printStackTrace();
+            // Optionally, return an error response or handle the exception
+        }
+
+        request.setActivityName((String) requestBody.get("activityName"));
+        request.setDescription((String) requestBody.get("description"));
+        
+        String type = (String) requestBody.get("type");
+        if (type.equals("other")) {
+            request.setType(Type.Other);
+        } else if (type.equals("Institute")) {
+            request.setType(Type.Institute);
+        } else if (type.equals("Department")) {
+            request.setType(Type.Department);
+        }
+        request.setLink((String) requestBody.get("pastUrl"));
+
+        // Save request and get generated rid
+        Requests savedRequest = requestsRepository.save(request);
+        Long rid = savedRequest.getRid(); // Ensure Requests entity has @Id @GeneratedValue
+
+        // Extract faIds from requestBody
+        List<Integer> faIds = (List<Integer>) requestBody.get("faIds");
+
+        // Save FA approvals in 'requested' table
+        for (Integer faId : faIds) {
+            Requested requested = new Requested(); // 0 = Pending
+            requested.setFaid(faId);
+            requested.setApproved(false);  
+            requested.setRid(rid); // Set the rid from the saved request
+            requestedRepository.save(requested);
+        }
+
+        return savedRequest;
     }
+
 
     // Update an existing request
     @PutMapping("/{id}")

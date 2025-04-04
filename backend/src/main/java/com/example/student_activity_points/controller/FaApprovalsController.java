@@ -105,12 +105,17 @@ public ResponseEntity<?> getFaDetails(@RequestParam String email) {
 
         // Fetch validation status
         if(!activityRepository.findByName(request.getActivityName()).isEmpty()){
-            Validation validationOpt = validationRepository.findByActIDAndSID(activityRepository.findByName(request.getActivityName()).get().getActID(),request.getSid());
-        String validationStatus = "Not uploaded"; // Default value
-        // if (validationOpt.isPresent()) {
+            // Check if the activity exists in validation table
+            List<Validation> validationOpt = validationRepository.findByActID(activityRepository.findByName(request.getActivityName()).get().getActID());
+            String validationStatus = "Not uploaded"; // Default value
         if(validationOpt!=null){
-            validationStatus = validationOpt.getValidated().toString(); // Fetch status if present
+            Validation validationOpt_ = validationRepository.findByActIDAndSID(activityRepository.findByName(request.getActivityName()).get().getActID(),request.getSid());
+            if(validationOpt_==null){
+                validationStatus="Pending";
+            }
+            else validationStatus=validationOpt_.getValidated().toString();
         }
+        System.out.println("Validation status: " + validationStatus);
         response.put("validated", validationStatus);
         }
         else response.put("validated", "N/A");
@@ -213,13 +218,24 @@ public ResponseEntity<?> validateRequest(@PathVariable Long rid) {
     Activity activity = activityOpt.get();
 
     // Check if validation already exists
-    Validation validation = validationRepository.findByActIDAndSID(activity.getActID(), req.getSid());
+    List<Validation> validationOpt = validationRepository.findByActID(activity.getActID());
     System.out.println("ActID: " + activity.getActID() + ", SID: " + req.getSid());
-    if (validation == null) {
-        return ResponseEntity.status(400).body("Cannot validate: Already validated");
+    if (validationOpt == null) {
+        return ResponseEntity.status(400).body("Cannot validate:Attendance not uploaded");
     }
-    validation.setValidated(Validated.Yes);
-    validationRepository.save(validation);
+    Validation validation = validationRepository.findByActIDAndSID(activity.getActID(), req.getSid());
+    if (validation != null) {
+        validation.setValidated(Validated.Yes);
+        validationRepository.save(validation);
+    }else{
+        Validation newValidation = new Validation();
+        newValidation.setSid(req.getSid());
+        newValidation.setActivity(activity);
+        newValidation.setUploadDate(new Date());
+        newValidation.setValidated(Validated.No);
+        validationRepository.save(newValidation);
+    }
+   
     return ResponseEntity.ok("Successfully validated");
 }
 

@@ -17,7 +17,7 @@ const Tracking = () => {
     return parts.length > 1 ? parts[1].toUpperCase() : username.toUpperCase();
   };
 
-  const sid = getSid(user?.email); // Extract student ID in uppercase
+  const sid = getSid(user.sid); // Extract student ID in uppercase
 
   useEffect(() => {
     if (!sid) return;

@@ -210,7 +210,7 @@ const ActivityManagement = () => {
         <td>{activity.type}</td>
         <td>{activity.mandatory === 1 ? "Yes" : "No"}</td>
         <td>{departments.find(dept => dept.did === activity.did)?.name || "N/A"}</td>
-        <td>{activity.description.length > 20 ? `${activity.description.substring(0, 20)}...` : activity.description}</td>
+        <td>{activity.description && activity.description.length > 20 ? `${activity.description.substring(0, 20)}...` : activity.description}</td>
         <td>{activity.outside_inside}</td>
         <td>{new Date(activity.date).toLocaleDateString('en-GB')}</td>
         <td>{new Date(activity.end_date).toLocaleDateString('en-GB')}</td>
