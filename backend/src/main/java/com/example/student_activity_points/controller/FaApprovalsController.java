@@ -108,7 +108,8 @@ public ResponseEntity<?> getFaDetails(@RequestParam String email) {
             // Check if the activity exists in validation table
             List<Validation> validationOpt = validationRepository.findByActID(activityRepository.findByName(request.getActivityName()).get().getActID());
             String validationStatus = "Not uploaded"; // Default value
-        if(validationOpt!=null){
+        if(validationOpt!=null && !validationOpt.isEmpty()){
+            // System.out.println(validationOpt);
             Validation validationOpt_ = validationRepository.findByActIDAndSID(activityRepository.findByName(request.getActivityName()).get().getActID(),request.getSid());
             if(validationOpt_==null){
                 validationStatus="Pending";
