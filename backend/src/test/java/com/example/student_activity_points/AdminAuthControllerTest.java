@@ -1,6 +1,8 @@
 package com.example.student_activity_points;
 
 import com.example.student_activity_points.controller.AdminAuthController;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 import com.example.student_activity_points.domain.Admin;
 import com.example.student_activity_points.repository.AdminRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -35,14 +37,20 @@ public class AdminAuthControllerTest {
         admin.setName("John");
         admin.setEmail("john@example.com");
         admin.setPassword("secret");
+        Admin savedAdmin = new Admin();
+        savedAdmin.setId(1);
+        savedAdmin.setName("John");
+        savedAdmin.setEmail("john@example.com");
+        savedAdmin.setPassword("secret");
 
-        when(adminRepo.save(admin)).thenReturn(admin);
+        when(adminRepo.save(org.mockito.ArgumentMatchers.any(Admin.class))).thenReturn(savedAdmin);
 
         mockMvc.perform(post("/admin/register")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(admin)))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.email").value("john@example.com"));
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(objectMapper.writeValueAsString(admin)))
+        .andDo(print())  // <--- Add this line here
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.email").value("john@example.com"));
     }
 
     @Test
@@ -60,8 +68,8 @@ public class AdminAuthControllerTest {
         when(adminRepo.findByEmail("john@example.com")).thenReturn(storedAdmin);
 
         mockMvc.perform(post("/admin/login")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(inputAdmin)))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(inputAdmin)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("John"));
     }
@@ -73,16 +81,20 @@ public class AdminAuthControllerTest {
         inputAdmin.setPassword("wrongpass");
 
         Admin storedAdmin = new Admin();
+        storedAdmin.setId(1);
+        storedAdmin.setName("John");
         storedAdmin.setEmail("john@example.com");
         storedAdmin.setPassword("secret");
 
         when(adminRepo.findByEmail("john@example.com")).thenReturn(storedAdmin);
 
         mockMvc.perform(post("/admin/login")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(inputAdmin)))
-                .andExpect(status().isInternalServerError());
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(inputAdmin)))
+                .andExpect(status().isInternalServerError())
+                .andExpect(content().string("Invalid credentials"));
     }
+
 
     @Test
     void testGetAdminByIdFound() throws Exception {

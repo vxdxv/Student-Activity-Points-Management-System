@@ -1,6 +1,7 @@
 package com.example.student_activity_points.controller;
 
 import com.example.student_activity_points.domain.Admin;
+import org.springframework.http.HttpStatus;
 import com.example.student_activity_points.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,13 +22,14 @@ public class AdminAuthController {
         return adminRepo.save(admin);
     }
 
-    @PostMapping("/login")
-    public Admin login(@RequestBody Admin admin) {
+  @PostMapping("/login")
+    public ResponseEntity<?> loginAdmin(@RequestBody Admin admin) {
         Admin existingAdmin = adminRepo.findByEmail(admin.getEmail());
         if (existingAdmin != null && existingAdmin.getPassword().equals(admin.getPassword())) {
-            return existingAdmin;
+            return ResponseEntity.ok(existingAdmin);
         } else {
-            throw new RuntimeException("Invalid credentials");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Invalid credentials");
         }
     }
 
